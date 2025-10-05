@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
 
         {/* Centered Title */}
         <div className="text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl md:mb-30 lg:text-8xl font-extrabold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-4xl md:mb-30 lg:text-7xl font-extrabold tracking-tight leading-tight">
             <span className="block overflow-hidden">
               <span className="title-line-1 inline-block">We Are The</span>
             </span>

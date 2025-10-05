@@ -62,8 +62,8 @@ const ClubsSection: React.FC = () => {
     >
       <div className="flex-1 flex items-center justify-center">
         <Image
-         width={250}
-          height={250}
+         width={450}
+          height={450}
           src="/Gemini_Generated_Image_1fxne11fxne11fxn-removebg-preview(1).png"
           alt="Club Illustration"
           className="w-full max-w-md object-contain rounded-2xl   duration-700"
