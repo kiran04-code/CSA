@@ -23,9 +23,9 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
   link = '#'
 }) => {
   return (
-    <section className="bg-black  sm:py-5 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-16 flex mb-5 md:mb-15 flex-col justify-center items-center">
+    <section className="bg-black  sm:py-5 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-1Z flex mb-5 md:mb-10 flex-col justify-center items-center">
       <div className="w-full text-center  sm:mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10">
           Latest <span className="text-[#EB5C2D]">Events</span>
         </h1>
       </div>
@@ -34,7 +34,7 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
       <div className="w-full max-w-7xl relative border-3 border-amber-50   rounded-2xl md:rounded-[50px] overflow-hidden shadow-2xl bg-gray-900">
         
         {/* Background Image */}
-        <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[750px]">
+        <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[450px] xl:h-[750px]">
           <Image
             src={imageUrl}
             alt={eventTitle}

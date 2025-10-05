@@ -38,9 +38,9 @@ const HomePageContent = () => {
 
             <HorizontalScroller />
             {/* Render the new FeaturedEventImage component here */}
-            <div className=""> {/* Add spacing around it */}
+      
                 <FeaturedEventImage {...latestEventData} />
-            </div>
+
             <ClubMembersSection />
             <Footer />
         </div>

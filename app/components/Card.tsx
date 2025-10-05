@@ -148,7 +148,7 @@ const HorizontalScroller: React.FC = () => {
 
         <div
           ref={trackRef}
-          className="flex items-center gap-16 sm:gap-24 md:gap-40 pl-[15vw] sm:pl-[25vw] pr-[40vw]"
+          className="flex items-center gap-16 sm:gap-24 md:gap-40 "
         >
           {domainData.map((domain, index) => (
             <div
