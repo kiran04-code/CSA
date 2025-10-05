@@ -21,7 +21,7 @@ const HeroSection = () => {
   return (
    <div>
     <Agent/>
-     <section className="relative flex flex-col mt-10 md:flex-row justify-between items-center min-h-[90vh] text-white px-8 md:px-8 overflow-hidden">
+     <section className="relative flex flex-col mt-9 md:flex-row justify-between items-center min-h-[90vh] text-white px-8 md:px-8 overflow-hidden">
       {/* Video Background */}
       
     <div className="md:p-5">

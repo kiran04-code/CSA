@@ -89,9 +89,9 @@ const HorizontalScroller: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden">
+    <section ref={containerRef} className="relative  w-full overflow-hidden">
       <div className="max-w-7xl mx-auto h-full flex flex-col justify-center">
-        <h2 className="text-4xl md:text-6xl font-extrabold mb-24 text-white relative z-10 px-4">
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-5 text-white relative z-10 px-4">
           Our <span className="text-[#ec6f46]">Core</span> Domains
         </h2>
 

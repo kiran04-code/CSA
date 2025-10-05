@@ -53,10 +53,10 @@ const ClubMembersSection: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black py-20 px-4 sm:px-8 md:px-25 text-white flex flex-col ">
+    <section className="min-h-screen bg-black  px-4 sm:px-8 md:px-25 text-white flex flex-col ">
 
 
-<h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 sm:mb-10 md:mb-16  sm:text-left leading-snug sm:leading-tight px-2 sm:px-0">
+<h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-5 sm:mb-10 md:mb-16  sm:text-left leading-snug sm:leading-tight px-1 sm:px-0">
   Meet Our{" "}
   <span className="bg-[#EB5C2D] px-3 sm:px-5 md:px-6 py-1 sm:py-2 rounded-lg sm:rounded-2xl md:rounded-3xl text-black shadow-md inline-block">
     Club Leadership
