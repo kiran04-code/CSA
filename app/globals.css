@@ -1,26 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Great+Vibes&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Manrope:wght@200..800&family=Mozilla+Headline:wght@200..700&family=Noto+Sans+JP:wght@100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sevillana&family=TASA+Orbiter:wght@400..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Apply default font (optional) */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Mozilla Headline', sans-serif;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Style for the scroll indicator bar */
+.progress-bar {
+
+  
+  z-index: 100; /* Ensures it's on top of other content */
+  transition: width 0.1s ease-out; /* Optional: adds a slight smoothing effect */
+}
+@keyframes pulse {
+  50% { opacity: 0.5; }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

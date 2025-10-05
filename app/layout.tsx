@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
+import { Geist, Mozilla_Headline  } from "next/font/google";
+import "./globals.css"
+import CustomCursor from "./components/custumCorsor";
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-mozilla-headline',
+  subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Mozilla_Headline ({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -25,8 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.className} antialiased  `}
       >
+      <CustomCursor/>
         {children}
       </body>
     </html>
