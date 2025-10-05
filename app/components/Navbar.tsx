@@ -49,7 +49,7 @@ const Navbar = () => {
         <div  className="flex items-center space-x-3">
           <div className="rounded-full border-2 border-white p-1 transition-transform duration-700 hover:scale-110">
             <Image
-              src="/logo.png"
+              src="/logo.ico"
               alt="Logo"
               width={40}
               height={40}
