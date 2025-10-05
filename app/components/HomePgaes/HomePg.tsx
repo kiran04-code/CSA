@@ -12,39 +12,39 @@ import ClubMembersSection from "../ClubMmber";
 import FeaturedEventImage from "../LatestEvent";
 
 // Import all your sections here
-  const latestEventData = {
-    eventTitle: "ML Unplugged: Hands-on Workshop",
-    eventDescription: "CSA VIT Pune presents a hands-on workshop with industry expert Sankar Patnaik from JP Morgan Chase and Citi.",
-    imageUrl: "/IMG_7805.jpg", // Path to your event image
-    speakerName: "Sankar Patnaik",
-    speakerTitle: "Former @ JP Morgan Chase, Citi",
-    logoUrl: "/Gemini_Generated_Image_c73zwnc73zwnc73z_1_-removebg-preview.png", // Optional: Path to your club or event logo
-    link: "https://example.com/ml-unplugged-registration", // Optional: Link to registration/event page
-  };
+const latestEventData = {
+  eventTitle: "ML Unplugged: Hands-on Workshop",
+  eventDescription: "CSA VIT Pune presents a hands-on workshop with industry expert Sankar Patnaik from JP Morgan Chase and Citi.",
+  imageUrl: "/IMG_7805.jpg", // Path to your event image
+  speakerName: "Sankar Patnaik",
+  speakerTitle: "Former @ JP Morgan Chase, Citi",
+  logoUrl: "/Gemini_Generated_Image_c73zwnc73zwnc73z_1_-removebg-preview.png", // Optional: Path to your club or event logo
+  link: "https://example.com/ml-unplugged-registration", // Optional: Link to registration/event page
+};
 
 
 const HomePageContent = () => {
-    return (
-        <div className="animate-fadeIn">
+  return (
+    <div className="animate-fadeIn">
 
+      <CustomCursor />
+      <Navbar />
 
-            <Navbar />
+      <HeroSection />
 
-            <HeroSection />
+      <AboutTeam />
 
-            <AboutTeam />
+      <ClubsSection />
 
-            <ClubsSection />
+      <HorizontalScroller />
+      {/* Render the new FeaturedEventImage component here */}
 
-            <HorizontalScroller />
-            {/* Render the new FeaturedEventImage component here */}
-      
-                <FeaturedEventImage {...latestEventData} />
+      <FeaturedEventImage {...latestEventData} />
 
-            <ClubMembersSection />
-            <Footer />
-        </div>
-    );
+      <ClubMembersSection />
+      <Footer />
+    </div>
+  );
 };
 
 export default HomePageContent;

@@ -48,8 +48,9 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
         : gsap.utils.mapRange(0.8, 1, 300, 1800, progress);
       gsap.set(sceneRef.current, { z: zPos });
 
-      const rotation = gsap.utils.mapRange(0, 1, 0, -360, progress);
-      gsap.set(imageWrapperRef.current, { rotationY: rotation });
+      // ✅ CHANGE 1: Replaced image rotation with a zoom (scale) effect on scroll.
+      const imageScale = gsap.utils.mapRange(0, 0.8, 1, 1.5, progress); // Zooms in as it gets closer
+      gsap.set(imageWrapperRef.current, { scale: imageScale });
 
       const nameTilt = gsap.utils.mapRange(0, 1, -30, 15, progress);
       gsap.set(clubNameRef.current, { rotationX: nameTilt });
@@ -73,7 +74,7 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
     const handleTouchStart = (e: TouchEvent) => (startTouchY = e.touches[0].clientY);
     const handleTouchMove = (e: TouchEvent) => {
       const deltaY = startTouchY - e.touches[0].clientY;
-      const  next = scrollProgress.current + deltaY * 0.002;
+      const next = scrollProgress.current + deltaY * 0.002;
       scrollProgress.current = Math.max(0, Math.min(1, next));
       startTouchY = e.touches[0].clientY;
     };
@@ -82,14 +83,25 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
     window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchmove", handleTouchMove);
 
-    // Animate energy rings
     const rings = sceneRef.current?.querySelectorAll<HTMLDivElement>(".energy-ring");
     rings?.forEach((ring, i) => {
-      gsap.to(ring, { rotation: 360, duration: 8 + i * 4, repeat: -1, ease: "linear" });
-      gsap.to(ring, { scale: 1.05, duration: 2 + i, yoyo: true, repeat: -1, ease: "sine.inOut" });
+      // ✅ CHANGE 2: Made the rings rotate on X and Y axes for a 3D orbital effect ("gol gol ghuma").
+      gsap.to(ring, {
+        rotationX: i % 2 === 0 ? 360 : -360,
+        rotationY: i % 2 !== 0 ? 360 : -360,
+        duration: 10 + i * 5, // Slower, more majestic rotation
+        repeat: -1,
+        ease: "linear",
+      });
+      gsap.to(ring, {
+        scale: 1.05,
+        duration: 2 + i,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
+      });
     });
 
-    // Animate stars opacity
     stars?.forEach((star) => {
       gsap.to(star, { opacity: Math.random() * 0.7 + 0.3, duration: Math.random() * 1.5 + 0.5, repeat: -1, yoyo: true });
     });
@@ -109,6 +121,7 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
   }, [isExiting, onLoaded]);
 
   return (
+    // ... JSX is the same, no changes needed here ...
     <div ref={loaderRef} className="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-hidden select-none">
       {/* Stars */}
       <div className="absolute inset-0">
@@ -117,6 +130,12 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
             key={i}
             className="star absolute rounded-full bg-orange-400"
             data-speed={Math.random() * 0.5 + 0.25}
+            // style={{
+            //   width: `${Math.random() * 2 + 1}px`,
+            //   height: `${Math.random() * 2 + 1}px`,
+            //   top: `${Math.random() * 100}%`,
+            //   left: `${Math.random() * 100}%`,
+            // }}
           />
         ))}
       </div>
@@ -138,6 +157,7 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
             src={image}
             alt={`${clubName} Logo`}
             fill
+            priority
             className="object-contain drop-shadow-[0_0_25px_#EC6F46]"
           />
         </div>
