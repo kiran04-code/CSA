@@ -23,7 +23,7 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
   link = '#'
 }) => {
   return (
-    <section className="bg-black  sm:py-5 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-1Z flex mb-5 md:mb-10 flex-col justify-center items-center">
+    <section className="bg-black  sm:py-5 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-1Z flex mb-20 md:mb-10 flex-col justify-center items-center">
       <div className="w-full text-center  sm:mb-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-10">
           Latest <span className="text-[#EB5C2D]">Events</span>
