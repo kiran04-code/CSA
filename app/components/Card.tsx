@@ -136,7 +136,7 @@ const HorizontalScroller: React.FC = () => {
       ref={containerRef}
       className="relative h-[100vh] sm:h-[120vh] w-full overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto h-full flex flex-col justify-center px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto h-full flex flex-col justify-center px-6 sm:px-8">
         {/* ✅ Responsive Heading */}
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-10 text-white relative z-10 text-left leading-tight">
           Our{" "}
