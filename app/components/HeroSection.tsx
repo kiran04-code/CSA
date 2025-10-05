@@ -65,7 +65,7 @@ const HeroSection = () => {
 
         <button
 
-          className="mt-10 z-10 bg-[#ec6f46] text-black font-semibold px-8 py-3 rounded-lg text-lg hover:bg-[#00bfa5] transition-all duration-300"
+          className="mt-10 z-10 bg-[#ec6f46] text-black font-semibold px-8 py-3 rounded-lg text-[12px] md:text-lg hover:bg-[#e4640f] transition-all duration-300"
         >
           Explore Our Technical Clubs
         </button>

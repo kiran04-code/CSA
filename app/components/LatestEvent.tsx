@@ -24,15 +24,14 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
 }) => {
   return (
     <section className="bg-black py-16 sm:py-20 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-16 flex gap-20 flex-col justify-center items-center">
-      <div className='md:px-12  w-full'> <h1 className='text-4xl md:text-5xl  font-bold'>
-        Latest <span className='text-[#EB5C2D]'>Evenets</span>
-        
+      <div className="w-full text-center  sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+          Latest <span className="text-[#EB5C2D]">Events</span>
         </h1>
-        
-        </div>
+      </div>
       {/* UPDATED: Changed rounding for the curved container effect. */}
       {/* We use a large radius for the top corners and a smaller one for the bottom. */}
-      <div className="w-full max-w-7xl relative border-3 border-amber-50 rounded-[50px] overflow-hidden shadow-2xl bg-gray-900">
+      <div className="w-full max-w-7xl relative border-3 border-amber-50   rounded-2xl md:rounded-[50px] overflow-hidden shadow-2xl bg-gray-900">
         
         {/* Background Image */}
         <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] xl:h-[750px]">
@@ -70,7 +69,7 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
           )}
 
           {/* Event Details Box (Top Aligned) */}
-          <div className="absolute top-4 sm:top-10 md:top-5 left-4 sm:left-6 md:left-8 max-w-[90%] sm:max-w-[70%] lg:max-w-[75%] bg-black/0 p-4 sm:p-6 md:p-5 md:rounded-[50px]  border-2  border-orange-500  rounded-lg  rounded-bt-xl backdrop-blur-sm  md:mb-10">
+          <div className="absolute top-4 sm:top-10 md:top-5 left-4 sm:left-6 md:left-8 max-w-[90%] sm:max-w-[70%] lg:max-w-[75%] bg-black/0 p-4 sm:p-6 md:p-5 md:rounded-[50px]  border-2  border-[#EB5C2D]  rounded-lg  rounded-bt-xl backdrop-blur-sm  md:mb-10">
             <h2 className="text-white text-2xl sm:text-3xl md:text-3xl lg:text-5xl font-extrabold leading-tight mb-3 sm:mb-4">
               {eventTitle}
             </h2>
