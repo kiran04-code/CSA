@@ -53,7 +53,7 @@ const ClubMembersSection: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen bg-black  px-4 sm:px-8 md:px-25 text-white flex flex-col ">
+    <section className="min-h-screen  md:mb-20  bg-black  px-4 sm:px-8 md:px-25 text-white flex flex-col ">
 
 
 <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-5 sm:mb-10 md:mb-16  sm:text-left leading-snug sm:leading-tight px-1 sm:px-0">
@@ -111,7 +111,7 @@ const ClubMembersSection: React.FC = () => {
             {/* Image */}
             <div
               id={`image-${member.id}`}
-              className="absolute top-1/2 -translate-y-1/2 left-0 w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden opacity-0 -translate-x-1/2 z-0"
+              className="absolute top-1/2   -translate-y-1/2 left-0 w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden opacity-0 -translate-x-1/2 z-0"
             >
               <Image
                 src={member.imageUrl}
@@ -130,7 +130,7 @@ const ClubMembersSection: React.FC = () => {
               className="relative block text-left py-4 md:py-6 border-b border-[#EC6F46] hover:border-white transition-colors duration-300 ease-in-out cursor-pointer z-10"
             >
               <h3
-                className={`text-4xl md:text-6xl font-extrabold transition-colors duration-300 ease-in-out ${
+                className={`text-4xl md:text-4xl font-extrabold transition-colors duration-300 ease-in-out ${
                   hoveredMemberId === member.id ? "text-white" : "text-r3-500 group-hover:text-white"
                 }`}
               >

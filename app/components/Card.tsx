@@ -19,50 +19,37 @@ const domainData: Domain[] = [
     id: 1,
     icon: <Code size={60} />,
     title: "Competitive Programming",
-    description:
-      "Sharpen your problem-solving skills and compete in coding challenges.",
+    description: "Sharpen your problem-solving skills and compete in coding challenges.",
   },
   {
     id: 2,
     icon: <Bot size={60} />,
     title: "AI & Machine Learning",
-    description:
-      "Dive into the world of artificial intelligence and work on exciting ML projects.",
+    description: "Dive into the world of artificial intelligence and work on exciting ML projects.",
   },
   {
     id: 3,
     icon: <ShieldCheck size={60} />,
     title: "Cybersecurity",
-    description:
-      "Participate in Capture The Flag (CTF) events and security workshops.",
+    description: "Participate in Capture The Flag (CTF) events and security workshops.",
   },
   {
     id: 4,
     icon: <Zap size={60} />,
     title: "Web Development",
-    description:
-      "Collaborate with peers on real-world projects and learn modern frameworks.",
+    description: "Collaborate with peers on real-world projects and learn modern frameworks.",
   },
   {
     id: 5,
     icon: <Layers size={60} />,
     title: "App Development",
-    description:
-      "Build amazing mobile applications for Android and iOS using modern tools.",
+    description: "Build amazing mobile applications for Android and iOS using modern tools.",
   },
   {
     id: 6,
     icon: <Server size={60} />,
     title: "Cloud & DevOps",
-    description:
-      "Explore cloud computing platforms and learn about automated deployment pipelines.",
-  },
-  {
-    id: 6,
-    icon: <Server size={60} />,
-    title: "Cloud & DevOps",
-    description:
-      "Explore cloud computing platforms and learn about automated deployment pipelines.",
+    description: "Explore cloud computing platforms and learn about automated deployment pipelines.",
   },
 ];
 
@@ -72,96 +59,110 @@ const HorizontalScroller: React.FC = () => {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const container = containerRef.current;
-    const track = trackRef.current;
+    // ✅ BEST PRACTICE: Use gsap.context() for scoping animations and easy cleanup
+    const ctx = gsap.context(() => {
+      const track = trackRef.current;
+      const container = containerRef.current;
+      if (!track || !container) return;
 
-    if (!container || !track) return;
-
-    const isMobile = window.innerWidth < 768;
-
-    // 🧹 Kill previous triggers if resizing
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-
-    if (!isMobile) {
-      // 💻 Desktop: Horizontal scroll animation
       const scrollWidth = track.scrollWidth - container.offsetWidth;
-
-      const horizontalScroll = gsap.to(track, {
-        x: -scrollWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: () => `+=${scrollWidth}`,
-          scrub: 1.5,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+      
+      // ✅ Using ScrollTrigger.matchMedia() for responsive animations
+      ScrollTrigger.matchMedia({
+        // Desktop and larger screens
+        "(min-width: 768px)": function () {
+          const horizontalScroll = gsap.to(track, {
+            x: -scrollWidth,
+            ease: "none",
+            scrollTrigger: {
+              trigger: container,
+              start: "top top",
+              end: () => `+=${scrollWidth}`,
+              scrub: 1.5,
+              pin: true,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+          
+          animateItems(horizontalScroll);
         },
-      });
 
-      itemRefs.current.forEach((item) => {
-        if (!item) return;
-
-        const targets = [
-          item.querySelector(".domain-icon"),
-          item.querySelector(".domain-title"),
-          item.querySelector(".domain-description"),
-        ].filter(Boolean) as gsap.TweenTarget[];
-
-        gsap.fromTo(
-          targets,
-          { opacity: 0.2, y: 50, scale: 0.9 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            ease: "power2.out",
+        // Mobile screens
+        "(max-width: 767px)": function () {
+          // You can have different settings for mobile here if you want.
+          // For this case, we want the same behavior, so the code is similar.
+          const horizontalScroll = gsap.to(track, {
+            x: -scrollWidth,
+            ease: "none",
             scrollTrigger: {
-              trigger: item,
-              containerAnimation: horizontalScroll,
-              start: "left center",
-              end: "center center",
-              scrub: true,
+              trigger: container,
+              start: "top top",
+              end: () => `+=${scrollWidth}`,
+              scrub: 1.5,
+              pin: true,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
             },
-          }
-        );
-      });
-    } else {
-      // 📱 Mobile: Vertical fade-in animations only
-      itemRefs.current.forEach((item) => {
-        if (!item) return;
-        gsap.fromTo(
-          item,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: item,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    }
+          });
 
-    // Cleanup
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+          animateItems(horizontalScroll);
+        }
+      });
+
+      // Helper function to animate the cards to avoid code repetition
+      function animateItems(containerAnimation: gsap.core.Tween) {
+          itemRefs.current.forEach((item) => {
+            if (!item) return;
+            
+            const indexNumber = item.querySelector<HTMLElement>(".domain-index-number");
+            const icon = item.querySelector<HTMLElement>(".domain-icon");
+            const title = item.querySelector<HTMLElement>(".domain-title");
+            const description = item.querySelector<HTMLElement>(".domain-description");
+
+            const targets = [icon, title, description, indexNumber].filter(Boolean) as gsap.TweenTarget[];
+
+            gsap.fromTo(
+              targets,
+              {
+                opacity: 0.15,
+                y: (i) => (i === 0 ? -50 : i === 3 ? 0 : 50),
+                scale: 0.9,
+                filter: "blur(10px)",
+              },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: item,
+                  containerAnimation: containerAnimation,
+                  start: "left center",
+                  end: "center center",
+                  scrub: true,
+                },
+              }
+            );
+        });
+      }
+
+    }, containerRef); // Scoping the context to the main container
+
+    // ✅ BEST PRACTICE: Cleanup function for the context
+    return () => ctx.revert();
   }, []);
 
   return (
+    // ✅ KEY CHANGE: Increased the height on all screen sizes for a consistent scrolling feel.
+    // Instead of h-[50vh] sm:h-[120vh], we use a single value. 120vh is a good starting point.
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden py-20"
+      className="relative h-[120vh] w-full overflow-hidden md:gap-20"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <h2 className="text-3xl sm:text-5xl md:text-5xl font-extrabold mb-16 text-white text-left leading-tight">
+      <div className="max-w-7xl mx-auto h-full flex flex-col justify-center px-6 sm:px-8">
+        <h2 className="text-3xl sm:text-5xl md:text-5xl font-extrabold mb-10 text-white relative z-10 text-left leading-tight">
           Our{" "}
           <span className="text-[#ec6f46] bg-[#ffffff10] px-3 py-1 rounded-xl">
             Core
@@ -171,28 +172,25 @@ const HorizontalScroller: React.FC = () => {
 
         <div
           ref={trackRef}
-          className="flex md:flex-row flex-col items-center gap-16 sm:gap-24 md:gap-40"
+          className="flex items-center gap-16 sm:gap-24 md:gap-40 pl-[15vw] sm:pl-[25vw] pr-[40vw]"
         >
           {domainData.map((domain, index) => (
             <div
               key={domain.id}
-              ref={(el) => (itemRefs.current[index] = el)}
-              className={`relative flex-shrink-0 text-center ${
-                index === 0 ? "ml-0" : ""
-              } w-full md:w-[40vw] lg:w-[30vw] flex flex-col items-center justify-center`}
+              ref={(el) => {
+                if (el) itemRefs.current[index] = el;
+              }}
+              className={`relative flex-shrink-0 ${
+                index === 0 ? "ml-[10vw]" : ""
+              } w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw] flex flex-col items-center justify-center text-center`}
             >
-              <span className="absolute -z-10 text-[6rem] sm:text-[8rem] md:text-[10rem] font-black text-gray-500/10 opacity-20">
+              <span className="domain-index-number absolute -z-10 text-[8rem] sm:text-[10rem] md:text-[12rem] font-black text-gray-500/10 opacity-20">
                 {String(index + 1).padStart(2, "0")}
               </span>
-
-              <div className="domain-icon mb-6 text-[#ec6f46]">
-                {domain.icon}
-              </div>
-
-              <h3 className="domain-title text-2xl sm:text-3xl md:text-4xl font-bold text-[#ec6f46] mb-3">
+              <div className="domain-icon mb-6 text-[#ec6f46]">{domain.icon}</div>
+              <h3 className="domain-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#ec6f46] mb-4">
                 {domain.title}
               </h3>
-
               <p className="domain-description text-gray-400 text-sm sm:text-base max-w-xs sm:max-w-sm">
                 {domain.description}
               </p>
