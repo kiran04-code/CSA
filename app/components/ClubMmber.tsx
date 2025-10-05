@@ -56,12 +56,13 @@ const ClubMembersSection: React.FC = () => {
     <section className="min-h-screen bg-black py-20 px-4 sm:px-8 md:px-25 text-white flex flex-col ">
 
 
-       <h2 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-8 sm:mb-12 md:mb-16 text-left leading-tight">
+<h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 sm:mb-10 md:mb-16  sm:text-left leading-snug sm:leading-tight px-2 sm:px-0">
   Meet Our{" "}
-  <span className="bg-[#EB5C2D] px-2 sm:px-4 md:px-6 py-1 md:py-2 rounded-xl md:rounded-3xl text-black shadow-md">
+  <span className="bg-[#EB5C2D] px-3 sm:px-5 md:px-6 py-1 sm:py-2 rounded-lg sm:rounded-2xl md:rounded-3xl text-black shadow-md inline-block">
     Club Leadership
   </span>
 </h2>
+
 
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-20 md:mb-28 text-left">
         {/* Column 1: Small Label */}
