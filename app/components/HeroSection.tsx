@@ -74,12 +74,12 @@ const HeroSection = () => {
       {/* Right Content */}
 
       <div className="relative z-10 mt-10 md:mt-0 md:w-[30%] text-gray-100 text-sm sm:text-base leading-relaxed md:text-right">
-        <p>
+        {/* <p>
           Join our journey to explore{" "}
           <span className="text-[#ec6f46]">AI, Web, IoT, and Cybersecurity</span>.
           Collaborate with innovators, lead impactful projects, and shape the
           future of technology.
-        </p>
+        </p> */}
       </div>
     </section>
    </div>
