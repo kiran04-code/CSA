@@ -34,7 +34,7 @@ const Agent: React.FC = () => {
       <div
         ref={imageContainerRef}
         // THE ONLY CHANGE IS HERE: top-[20%] is now top-[25%]
-        className="absolute top-[25%] h-[50vw] w-[60vw] md:h-[25vw] md:w-[30vw] left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 rounded-3xl border-4 border-[#EC6F46] overflow-hidden shadow-2xl"
+        className="absolute top-[25%] h-[50vw] w-[60vw] md:h-[25vw] md:w-[30vw] left-1/2 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-0 rounded-3xl border-4 border-[#EC6F46] overflow-hidden shadow-2xl"
       >
         <Image
           src={mainImageSrc}

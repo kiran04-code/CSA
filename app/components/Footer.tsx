@@ -73,10 +73,11 @@ const Footer: React.FC = () => {
         <div className="w-full flex flex-col md:flex-row justify-between items-end gap-4">
           {/* Tagline */}
           <div className="tagline text-left max-w-md">
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+            {/* <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
               Empowering innovation through collaboration, learning, and
               creativity at VIT Pune.
-            </p>
+            </p> */}
+            <h1 className="md:text-6xl font-bold text-2xl text-left  ">Empowering  <br />innovation </h1>
           </div>
 
           {/* Contact Links */}

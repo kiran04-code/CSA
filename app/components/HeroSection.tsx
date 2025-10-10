@@ -10,7 +10,6 @@ const HeroSection = () => {
   const subTextRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // Using GSAP Context for robust animations and proper cleanup in React
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
@@ -18,21 +17,26 @@ const HeroSection = () => {
       tl.from(mainTextRef.current, { y: 80, opacity: 0 })
         .from(subTextRef.current, { y: 40, opacity: 0 }, "-=0.5")
         .from(buttonRef.current, { y: 30, opacity: 0, scale: 0.8 }, "-=0.4");
-        
-    }, main); // scope animations to the main container
+    }, main);
 
-    return () => ctx.revert(); // cleanup function
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={main}>
-      {/* The Agent component is called here to be positioned absolutely over the section */}
+    <div ref={main} className="relative overflow-hidden md:px-15">
+      {/* 🔸 Background Video */}
+    
+
+      {/* 🔸 Orange Overlay — fixed z-index */}
+      <div className="absolute inset-0 bg-[#ec6f46]/50 mix-blend-multiply -z-0"></div>
+
+      {/* 🔸 Agent Component */}
       <Agent />
-      
-      <section className="relative flex flex-col mt-9 md:flex-row justify-between items-center min-h-[90vh] text-white px-8 md:px-8 overflow-hidden">
+
+      <section className="relative flex flex-col mt-9 md:flex-row justify-between items-center min-h-[90vh] text-white px-8 md:px-8">
         {/* Background Glows */}
-        <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-[#ec6f46]/30 blur-[150px] rounded-full -z-10"></div>
-        <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#ec6f46]/20 blur-[180px] rounded-full -z-10"></div>
+        <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-[#ec6f46]/15 blur-[350px] rounded-full -z-0"></div>
+        <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#ec6f46]/20 blur-[180px] rounded-full -z-0"></div>
 
         {/* Left Content */}
         <div className="relative z-10 w-full md:w-[65%] mt-10 md:mt-0">
@@ -64,7 +68,7 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Right Content (This is intentionally empty as the image is positioned over it) */}
+        {/* Right Content */}
         <div className="relative z-10 mt-10 md:mt-0 md:w-[30%]"></div>
       </section>
     </div>

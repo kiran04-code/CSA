@@ -10,6 +10,9 @@ import CustomCursor from "../custumCorsor";
 import ClubsSection from "../Domain";
 import ClubMembersSection from "../ClubMmber";
 import FeaturedEventImage from "../LatestEvent";
+import AutoIncrementPage from "../EventsVlues";
+import TeamCounterSection from "../EventsVlues";
+import Events from "../EventLookUp";
 
 // Import all your sections here
 const latestEventData = {
@@ -33,15 +36,15 @@ const HomePageContent = () => {
       <HeroSection />
 
       <AboutTeam />
-
       <ClubsSection />
-
       <HorizontalScroller />
+     <Events/>
       {/* Render the new FeaturedEventImage component here */}
 
       <FeaturedEventImage {...latestEventData} />
 
       <ClubMembersSection />
+<TeamCounterSection/>
       <Footer />
     </div>
   );

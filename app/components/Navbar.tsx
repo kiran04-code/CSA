@@ -43,11 +43,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50 md:px-33  px-6">
-      <div className="w-full md:w-[100%]  backdrop-blur-md shadow-md rounded-4xl px-2 md:px-0 py-2  border-[#ec6f46] flex items-center justify-between">
+    <nav className="fixed top-4 left-0 right-0 z-50 md:px-18  px-6">
+      <div className="w-full md:w-[100%]  backdrop-blur-md shadow-md rounded-4xl px-1 md:px-3 py-2  border-[#ec6f46] flex items-center justify-between">
         {/* Left Logo + Text */}
         <div  className="flex items-center space-x-3">
-          <div className="rounded-full border-2 border-white p-1 transition-transform duration-700 hover:scale-110">
+          <div className="rounded-full border-2 border-amber-50 justify-center items-center  p-1 transition-transform duration-700 hover:scale-110">
             <Image
               src="/logo.ico"
               alt="Logo"
