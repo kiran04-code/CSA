@@ -7,147 +7,42 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Agent: React.FC = () => {
-  const imageDiv = useRef<HTMLDivElement>(null);
-  const imageDiv2 = useRef<HTMLImageElement>(null);
+const mainImageSrc = "/IMG_7804.jpg";
 
-  const imageArry: string[] = [
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7801.jpg",
-    "/IMG_7804.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-    "/IMG_7805.jpg",
-   
-  ];
+const Agent: React.FC = () => {
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!imageDiv.current || !imageDiv2.current) return;
+    const imageElement = imageContainerRef.current;
+    if (!imageElement) return;
 
-    const tl = gsap.timeline({
+    gsap.to(imageElement, {
+      y: 300, 
+      opacity: 0, 
+      ease: "none",
       scrollTrigger: {
-        trigger: imageDiv.current,
-        start: "top 20%",
-        end: "top -90%",
-        pin: true,
+        trigger: imageElement,
+        start: "top 50%", 
+        end: "bottom top", 
         scrub: true,
-        onUpdate: (self) => {
-          const index = Math.floor(self.progress * imageArry.length);
-          if (imageDiv2.current) {
-            imageDiv2.current.src = imageArry[Math.min(index, imageArry.length - 1)];
-          }
-        },
       },
-    });
-
-    // Scale and rotate image for dynamic effect
-    tl.to(imageDiv.current, {
-      scale: 1.05,
-      rotation: 5,
-      duration: 1,
-      ease: "power2.out",
-    })
-      .to(
-        imageDiv.current,
-        {
-          rotation: -5,
-          y: -30,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        "<"
-      )
-      .to(imageDiv.current, {
-        scale: 1,
-        rotation: 0,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      });
-
-    // Glow border effect
-    gsap.to(imageDiv.current, {
-    
-      repeat: -1,
-      yoyo: true,
-      duration: 2,
-      ease: "sine.inOut",
     });
   }, []);
 
   return (
-    <div className="relative w-full  text-white overflow-hidden">
-      {/* Image container */}
+    <div className="relative w-full z-[1]">
       <div
-        ref={imageDiv}
-        className="absolute top-[20%] left-232 transform -translate-x-1/2 h-[25vw] w-[30vw] rounded-3xl border-4 border-[#EC6F46] overflow-hidden shadow-2xl"
+        ref={imageContainerRef}
+        // THE ONLY CHANGE IS HERE: top-[20%] is now top-[25%]
+        className="absolute top-[25%] h-[50vw] w-[60vw] md:h-[25vw] md:w-[30vw] left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 rounded-3xl border-4 border-[#EC6F46] overflow-hidden shadow-2xl"
       >
         <Image
-          ref={imageDiv2}
-          src={imageArry[0]}
+          src={mainImageSrc}
           width={450}
           height={450}
-          className="h-full w-full object-center"
-          alt="Team member"
+          className="h-full w-full object-cover object-center"
+          alt="Computer Student Association Team"
+          priority
         />
       </div>
     </div>
