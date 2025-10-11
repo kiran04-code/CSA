@@ -54,7 +54,7 @@ const ClubHeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black text-white relative flex flex-col items-center justify-center min-h-screen overflow-hidden font-sans p-6"
+      className="bg-black text-white relative flex flex-col items-center justify-center min-h-screen overflow-hidden   p-6"
     >
       {/* Decorative left-side dots */}
       <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 flex-col items-center space-y-4 md:flex">
@@ -98,7 +98,7 @@ const ClubHeroSection = () => {
 
         {/* Right Column: Text Content */}
         <div ref={textRef} className="flex flex-col justify-center text-center lg:text-left space-y-6">
-          <h1 className="text-6xl text-[#ec6f46] font-semibold leading-tight tracking-tighter sm:text-7xl md:text-8xl">
+          <h1 className="text-6xl text-[#ec6f46]  leading-tight tracking-tighter sm:text-7xl md:text-8xl">
             We <br />
             <span className="font-medium text-gray-500">improve</span> <br />
             every day
@@ -113,8 +113,8 @@ const ClubHeroSection = () => {
 
       </div>
          <div className='flex justify-center items-center mt-5'> <button
-            ref={buttonRef}
-            className="mt-6 w-max bg-[#ec6f46] text-black font-semibold px-10 py-4 rounded-3xl text-lg shadow-xl hover:bg-[#e4640f] transition-all duration-300"
+            
+            className="mt-6  w-max bg-[#ec6f46] text-black font-semibold px-10 py-4 rounded-3xl text-lg shadow-xl hover:bg-[#e4640f] transition-all duration-300"
           >
             Find All Events
           </button></div>

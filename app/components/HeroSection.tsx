@@ -35,8 +35,8 @@ const HeroSection = () => {
 
       <section className="relative flex flex-col mt-9 md:flex-row justify-between items-center min-h-[90vh] text-white px-8 md:px-8">
         {/* Background Glows */}
-        <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-[#ec6f46]/15 blur-[350px] rounded-full -z-0"></div>
-        <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#ec6f46]/20 blur-[180px] rounded-full -z-0"></div>
+        <div className="absolute md:flex hidden top-20 left-10 w-[400px] h-[400px] bg-[#ec6f46]/15 blur-[350px] rounded-full -z-0"></div>
+        <div className="absolute md:flex hidden  bottom-10 right-10 w-[400px] h-[400px] bg-[#ec6f46]/20 blur-[180px] rounded-full -z-0"></div>
 
         {/* Left Content */}
         <div className="relative z-10 w-full md:w-[65%] mt-10 md:mt-0">
@@ -61,7 +61,7 @@ const HeroSection = () => {
           </p>
 
           <button
-            ref={buttonRef}
+            // ref={buttonRef}
             className="mt-10 z-10 bg-[#ec6f46] text-black font-semibold px-8 py-3 rounded-lg text-[12px] md:text-lg hover:bg-[#e4640f] transition-all duration-300"
           >
             Explore Our Technical Clubs

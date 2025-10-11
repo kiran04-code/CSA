@@ -19,15 +19,15 @@ const Page = () => {
   return (
     // CRITICAL: `overflow-hidden` has been removed to allow scrolling.
     <main className="bg-black w-full min-h-screen">
-      {/* {isLoading ? (
+      {isLoading ? (
         <CosmicOrbPreloader
           image={"/Gemini_Generated_Image_c73zwnc73zwnc73z_1_-removebg-preview.png"}
           clubName="Computer Student Association"
           onLoaded={() => setIsLoading(false)}
         />
       ) : (
-      )} */}
       <HomePageContent />
+      )}
     </main>
   );
 };
