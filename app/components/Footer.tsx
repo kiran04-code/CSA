@@ -83,14 +83,14 @@ const Footer: React.FC = () => {
           {/* Contact Links */}
           <div className="contact-links flex flex-row md:flex-col items-start md:items-end gap-3">
             <a
-              href="mailto:techverseclub@gmail.com"
+              href="computerstudentassociation@vit.edu"
               className="flex items-center gap-2 text-gray-300 hover:text-[#EC6F46] transition-colors"
             >
               <Mail size={18} />
               <span className="hidden sm:inline">Email</span>
             </a>
             <a
-              href="https://linkedin.com/company/techverseclub"
+              href="https://www.linkedin.com/company/csa-vit-pune/"
               target="_blank"
               className="flex items-center gap-2 text-gray-300 hover:text-[#EC6F46] transition-colors"
             >
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               <span className="hidden sm:inline">LinkedIn</span>
             </a>
             <a
-              href="https://github.com/techverseclub"
+              href="https://github.com/innovsphere"
               target="_blank"
               className="flex items-center gap-2 text-gray-300 hover:text-[#EC6F46] transition-colors"
             >
