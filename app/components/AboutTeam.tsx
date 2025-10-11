@@ -42,26 +42,20 @@ function AboutTeam() {
             <div className="flex-1 space-y-6">
                 <h1
                    
-                   
-                    className="text-5xl font-bold"
+                  className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight [text-shadow:0_0_15px_#EC6F46]"
                     style={{ color: "#ffffff" }}
                 >
                     About <span className="text-[#EC6F46]">Us</span>
                 </h1>
 
                 <div className="relative z-10 mt-10 md:mt-0 md:w-170 text-gray-100 text-sm sm:text-base space-y-2">
-                    <p >
+                    <p className="text-xl">
                         A community of student developers exploring technology.
-                    </p>
-                    <p >
                         We host workshops, hackathons, and seminars to sharpen skills and collaborate.
-                    </p>
-                    <p >
                         Whether youre a seasoned coder or beginner, we provide a space to learn and innovate.
-                    </p>
-                    <p >
                         Explore <span className="text-[#ec6f46]">AI, Web, IoT, Blockchain, Cybersecurity, and Data Analytics</span> with our clubs.
                     </p>
+                
                 </div>
 
             </div>

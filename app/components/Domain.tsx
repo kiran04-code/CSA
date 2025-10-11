@@ -71,10 +71,10 @@ const ClubsSection: React.FC = () => {
       </div>
       {/* Left Content */}
       <div className="flex-1 md:pr-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <h2  className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight [text-shadow:0_0_15px_#EC6F46]">
           Our <span className="text-[#EC6F46]">Domains</span>
         </h2>
-        <p className="text-gray-200 text-base leading-relaxed md:w-[90%]">
+        <p className="text-gray-200  leading-relaxed md:w-[90%] text-xl base">
           Explore{" "}
           <span className="text-[#ec6f46] font-semibold">
             AI, Web Development, IoT, Blockchain, Cybersecurity, and Data
