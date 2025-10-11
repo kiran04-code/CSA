@@ -70,7 +70,7 @@ const TeamCounterSection: React.FC = () => {
   return (
     <main
       ref={sectionRef}
-      className="flex flex-col bg-red items-center justify-center min-h-[50vh] bg-transparent text-white text-center font-sans px-4 py-16"
+      className="flex flex-col bg-red items-center justify-center min-h-[50vh] bg-transparent text-white text-center  px-4 py-16"
     >
       <h1 className="mb-12 text-4xl md:text-5xl font-bold tracking-tight">
         Meet Our <span className="text-[#ec6f46]">Team Strength</span>

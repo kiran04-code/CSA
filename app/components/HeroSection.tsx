@@ -33,7 +33,7 @@ const HeroSection = () => {
       {/* 🔸 Agent Component */}
       <Agent />
 
-      <section className="relative flex flex-col mt-9 md:flex-row justify-between items-center min-h-[90vh] text-white px-8 md:px-8">
+      <section className="relative flex flex-col mt-13  md:flex-row justify-between items-center min-h-[100vh] text-white px-8 md:px-8">
         {/* Background Glows */}
         <div className="absolute md:flex hidden top-20 left-10 w-[400px] h-[400px] bg-[#ec6f46]/15 blur-[350px] rounded-full -z-0"></div>
         <div className="absolute md:flex hidden  bottom-10 right-10 w-[400px] h-[400px] bg-[#ec6f46]/20 blur-[180px] rounded-full -z-0"></div>
