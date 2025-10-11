@@ -56,9 +56,9 @@ const ClubMembersSection: React.FC = () => {
     <section className="min-h-screen  md:mb-20  bg-black  px-4 sm:px-8 md:px-25 text-white flex flex-col ">
 
 
-<h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-5 sm:mb-10 md:mb-16  sm:text-left leading-snug sm:leading-tight px-1 sm:px-0">
+<h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight [text-shadow:0_0_15px_#EC6F46]">
   Meet Our{" "}
-  <span className="bg-[#EB5C2D] px-3 sm:px-5 md:px-6 py-1 sm:py-2 rounded-lg sm:rounded-2xl md:rounded-3xl text-black shadow-md inline-block">
+  <span className="bg-[#EB5C2D] px-3 sm:px-4 md:px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl md:rounded-2xl text-black shadow-md inline-block">
     Club Leadership
   </span>
 </h2>
@@ -75,7 +75,7 @@ const ClubMembersSection: React.FC = () => {
 
         {/* Column 2: Main Heading */}
         <div className="md:col-span-5">
-          <h3 className="text-4xl md:text-5xl font-medium leading-tight text-white">
+          <h3 className="text-3xl md:text-5xl font-medium leading-tight text-white">
             How we take your skills to the next level
           </h3>
         </div>
@@ -130,7 +130,7 @@ const ClubMembersSection: React.FC = () => {
               className="relative block text-left py-4 md:py-6 border-b border-[#EC6F46] hover:border-white transition-colors duration-300 ease-in-out cursor-pointer z-10"
             >
               <h3
-                className={`text-4xl md:text-4xl font-extrabold transition-colors duration-300 ease-in-out ${
+                className={`text-xl md:text-2xl font-extrabold transition-colors duration-300 ease-in-out ${
                   hoveredMemberId === member.id ? "text-white" : "text-r3-500 group-hover:text-white"
                 }`}
               >
