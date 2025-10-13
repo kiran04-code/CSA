@@ -15,19 +15,24 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
   const lastScrollYRef = useRef(0);
-
-  const leftLinks = NAV_LINKS.slice(0, 2);
-  const rightLinks = NAV_LINKS.slice(2);
+  
+  // 1. State to store the rotation angle based on scroll
+  const [rotationAngle, setRotationAngle] = useState(0);
 
   const handleToggle = () => {
     setIsAnimating(true);
     setIsOpen((prev) => !prev);
   };
 
-  // Hide navbar when user scrolls down; do not auto-open on scroll up
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY || 0;
+      
+      // 2. Update the rotation angle as the user scrolls
+      // You can multiply currentY by a factor to control speed, e.g., currentY * 0.5 for slower rotation
+      setRotationAngle(currentY);
+
+      // Existing logic to hide navbar on scroll down
       if (currentY > lastScrollYRef.current + 5) {
         if (isOpen) setIsOpen(false);
       }
@@ -39,7 +44,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-10 left-15 right-0 z-50">
+    <header className="fixed top-10 md:left-20 left-5 right-0 z-50">
       <div className="relative h-16">
         <div className="flex items-center gap-6">
           {/* Toggle button with inline hint above when collapsed (left side) */}
@@ -47,7 +52,7 @@ const Navbar = () => {
             {!isOpen && (
               <button
                 onClick={handleToggle}
-                className="mb-1 w-max whitespace-nowrap px-0.5 py-1 rounded-full bg-black/70 border border-orange-500 text-[10px] leading-none text-gray-300 shadow-[0_0_12px_rgba(236,111,70,0.35)] hover:border-orange-400 transition-colors"
+                className="mb-1 w-max whitespace-nowrap  py-1 px-2 rounded-full bg-black/70 border border-[#ec6f46] text-[10px] leading-none text-gray-300 shadow-[0_0_12px_rgba(236,111,70,0.35)] hover:border-orange-400 transition-colors"
               >
                 Press to open
               </button>
@@ -65,13 +70,15 @@ const Navbar = () => {
                 width={40}
                 height={40}
                 className="rounded-full"
+                // 3. Apply the rotation using an inline style
+                style={{ transform: `rotate(${rotationAngle}deg)` }}
               />
             </button>
           </div>
 
           {/* Links container to the right of the button */}
           <nav
-            className={`flex items-center h-16 bg-black/70 backdrop-blur-sm border border-red-500 rounded-full shadow-[0_0_20px_rgba(236,111,70,0.5)] transition-all duration-700 ease-in-out overflow-hidden ${
+            className={`flex items-center h-16 bg-black/70 backdrop-blur-sm border border-[#ec6f46] rounded-full shadow-[0_0_20px_rgba(236,111,70,0.5)] transition-all duration-700 ease-in-out overflow-hidden ${
               isOpen ? 'px-6 opacity-100 max-w-4xl' : 'px-0 opacity-0 pointer-events-none max-w-0'
             }`}
           >
