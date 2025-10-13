@@ -31,7 +31,7 @@ const HomePageContent = () => {
     <div className="animate-fadeIn">
 
       <CustomCursor />
-      <Navbar />
+      {/* <Navbar /> */}
 
       <HeroSection />
 

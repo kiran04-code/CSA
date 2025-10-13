@@ -1,16 +1,22 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const CustomCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Detect if the user is on a touch device (mobile/tablet)
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+
+    if (isTouch) return; // Skip adding cursor logic for mobile
+
     const cursor = cursorRef.current;
     if (!cursor) return;
 
-    // Set initial position to the center for a nice entry
     gsap.set(cursor, {
       xPercent: -50,
       yPercent: -50,
@@ -18,38 +24,34 @@ const CustomCursor: React.FC = () => {
       y: window.innerHeight / 2,
     });
 
-    // Animate the cursor to follow the mouse
     const handleMouseMove = (e: MouseEvent) => {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.5, // Controls the "lag" for a smoother feel
+        duration: 0.5,
         ease: "power3.out",
       });
     };
 
-    // Add hover effects for interactive elements
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Check if the target is a link, button, or other clickable element
       if (target.matches("a, button, [role='button'], input, select")) {
         gsap.to(cursor, {
           scale: 1.5,
           backgroundColor: "#ffffff",
-          mixBlendMode: "difference", // Creates a cool inversion effect
+          mixBlendMode: "difference",
           duration: 0.3,
           ease: "power3.out",
         });
       }
     };
 
-    // Revert the cursor style on mouse out
     const handleMouseOut = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.matches("a, button, [role='button'], input, select")) {
         gsap.to(cursor, {
           scale: 1,
-          backgroundColor: "#EC6F46", // Original color
+          backgroundColor: "#EC6F46",
           mixBlendMode: "normal",
           duration: 0.3,
           ease: "power3.out",
@@ -61,25 +63,23 @@ const CustomCursor: React.FC = () => {
     document.addEventListener("mouseover", handleMouseOver);
     document.addEventListener("mouseout", handleMouseOut);
 
-    // Cleanup listeners on component unmount
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []);
+
+  // Do not render the cursor on mobile/touch devices
+  if (isTouchDevice) return null;
 
   return (
     <>
-      {/* Hide the default system cursor */}
       <style>{`body, a, button, * { cursor: none; }`}</style>
-
-      {/* The custom cursor element */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-14 h-14 rounded-full bg-[#EC6F46] flex items-center justify-center pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-14 h-14 hidden md:flex rounded-full bg-[#EC6F46] items-center justify-center pointer-events-none z-[9999]"
       >
-        {/* SVG for the up-right arrow */}
         <svg
           width="24"
           height="24"
