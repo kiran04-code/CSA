@@ -72,7 +72,7 @@ const ContactPage = () => {
         className="text-center mb-12 max-w-xl"
         ref={descRef}
       >
-        We'd love to hear from you! Fill out the form below or reach us through our social channels.
+        We&apos;d love to hear from you! Fill out the form below or reach us through our social channels.
       </p>
 
       <div className="w-full max-w-3xl bg-black/70 border border-red-500 rounded-2xl p-8 shadow-[0_0_30px_rgba(236,111,70,0.35)]">
