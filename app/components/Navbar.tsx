@@ -3,12 +3,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import CSALogo from '../../public/logo.svg'; // adjust path if needed
+import Link from 'next/link';
 
 const NAV_LINKS = [
   { name: 'Home', href: '#home' },
   { name: 'Domains', href: '#Domains' },
   { name: 'Events', href: '#events' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Contact', href: '/Contacts' },
 ];
 
 const Navbar = () => {
@@ -84,13 +85,13 @@ const Navbar = () => {
           >
             <div className="flex items-center space-x-10">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="text-gray-300 hover:text-red-400 transition-colors duration-300 font-medium whitespace-nowrap"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>
