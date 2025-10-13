@@ -6,7 +6,7 @@ import CSALogo from '../../public/logo.svg'; // adjust path if needed
 import Link from 'next/link';
 
 const NAV_LINKS = [
-  { name: 'Home', href: '#home' },
+  { name: 'Home', href: '/' },
   { name: 'Domains', href: '#Domains' },
   { name: 'Events', href: '#events' },
   { name: 'Contact', href: '/Contacts' },
