@@ -2,8 +2,8 @@
 
 import React, { useRef, useEffect } from "react";
 // Assuming GSAP and ScrollTrigger are loaded globally
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Agent = () => {
   const imageContainerRef = useRef(null);
@@ -33,7 +33,7 @@ const Agent = () => {
 
     // Existing scroll animation - UPDATED y value
     gsap.to(imageElement, {
-      y: 130, // Moves downwards on scroll by 130px
+      y: -130, // Moves upwards on scroll by 130px
       opacity: 0,
       ease: "none",
       scrollTrigger: {
@@ -66,7 +66,7 @@ const Agent = () => {
           playsInline
         />
         {/* Orange Overlay: Opacity reduced for a more subtle effect */}
-        <div className="absolute inset-0 w-full h-full bg-[#EC6F46]/50 mix-blend-multiply"></div>
+        <div className="absolute inset-0 w-full h-full bg-[#EC6F46]/40 mix-blend-multiply"></div>
       </div>
     </div>
   );

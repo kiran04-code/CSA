@@ -45,6 +45,8 @@ const HeroSection = () => {
         alt="Background pattern"
         className="absolute inset-0 w-full h-full object-cover z-100"
         aria-hidden="true"
+        width={250}
+        height={250}
       />
       
       {/* OVERLAY: Placed on top of the background image with a higher z-index */}
