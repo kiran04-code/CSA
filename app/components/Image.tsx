@@ -43,7 +43,7 @@ const Agent = () => {
   }, []);
 
   return (
-    <div className="relative w-full -z-100"> {/* enough height to scroll */}
+    <div className="relative w-full -z-50"> {/* enough height to scroll */}
       <div
         ref={imageContainerRef}
         className="absolute top-[20vh] h-[55vw] w-[85vw] max-h-[350px] left-1/2 -translate-x-1/2 
