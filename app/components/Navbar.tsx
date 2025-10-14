@@ -45,7 +45,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="md:fixed fixed md:top-10 md:left-20 p-5 left-5 right-0 z-50">
+    <header className="md:fixed fixed md:top-10 md:left-15 p-5 left-0 right-105 z-50">
       <div className="relative h-16">
         <div className="flex items-center gap-6">
           {/* Toggle button with inline hint above when collapsed (left side) */}
