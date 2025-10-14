@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { Github, Linkedin, Instagram } from "lucide-react";
-
+import toast, {Toaster} from "react-hot-toast"
 const ContactPage = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
@@ -42,17 +42,16 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Sending...");
-
+    toast.success("Sending...")
     try {
       const response = await fetch("https://formspree.io/f/mpwykazq", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(e.target as HTMLFormElement),
       });
-
+      
       if (response.ok) {
-        setStatus("✅ Message sent successfully!");
+        toast.success("Message sent successfully!");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         setStatus("❌ Failed to send message. Please try again later.");
@@ -64,6 +63,20 @@ const ContactPage = () => {
 
   return (
     <section className="pt-40 pb-24 px-6 flex flex-col items-center justify-start bg-gradient-to-b from-black via-[#1a0e0b] to-black">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: 'orange', // orange background
+            color: 'white',       // white text
+            padding: '16px',
+            borderRadius: '8px',
+            fontWeight: 'bold',
+          },
+        }}
+      />
+      {/* Your app content */}
+  
       <h1
         className="text-5xl font-extrabold mb-4 text-white tracking-tight"
         ref={headingRef}
