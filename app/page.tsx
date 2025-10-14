@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ZoomScrollPreloader from "./components/loader"; // Use your final loader name
 import HomePageContent from "./components/HomePgaes/HomePg"; // Import the new component
 import CosmicOrbPreloader from "./components/loader";
 
 const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const [loaderdata,setloaderdata] = useState("")
   // A quick check: The original files were .jpg. 
   // Please ensure these .png files exist in your /public folder!
   const loaderImages = [

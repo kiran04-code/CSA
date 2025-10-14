@@ -26,7 +26,6 @@ const CosmicOrbPreloader: React.FC<CosmicOrbPreloaderProps> = ({ image, clubName
   const smoothedScroll = useRef(0);
   const [isExiting, setIsExiting] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
-
   useEffect(() => {
     const stars = loaderRef.current?.querySelectorAll<HTMLDivElement>(".star");
 

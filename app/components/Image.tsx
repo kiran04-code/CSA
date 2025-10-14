@@ -3,47 +3,63 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const mainImageSrc = "/IMG_7804.jpg";
-
-const Agent: React.FC = () => {
-  const imageContainerRef = useRef<HTMLDivElement>(null);
+const Agent = () => {
+  const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const imageElement = imageContainerRef.current;
     if (!imageElement) return;
 
+    // Entry animation
+    gsap.from(imageElement, {
+      duration: 1.2,
+      autoAlpha: 0,
+      scale: 0.95,
+      y: -20,
+      ease: "power3.out",
+      delay: 0.5,
+    });
+
+    // Scroll-triggered downward movement
     gsap.to(imageElement, {
-      y: 300, 
-      opacity: 0, 
+      y: 130, // move down 130px
       ease: "none",
       scrollTrigger: {
         trigger: imageElement,
-        start: "top 50%", 
-        end: "bottom top", 
-        scrub: true,
+        start: "top 80%", 
+        end: "bottom top",
+        scrub: 1,
+        // markers: true, // enable for debugging
       },
     });
+
+    // Cleanup on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   return (
-    <div className="relative w-full z-[1]">
+    <div className="relative w-full md:-z-50  -z-100"> {/* enough height to scroll */}
       <div
         ref={imageContainerRef}
-        // THE ONLY CHANGE IS HERE: top-[20%] is now top-[25%]
-        className="absolute top-[25%] h-[50vw] w-[60vw] md:h-[25vw] md:w-[30vw] left-1/2 -translate-x-1/2 md:left-auto md:right-0 md:translate-x-0 rounded-3xl border-4 border-[#EC6F46] overflow-hidden shadow-2xl"
+        className="absolute top-[0vh] h-[100vw]  w-[90vw] max-h-[350px] left-1/2 -translate-x-1/2 
+                   md:left-auto md:right-20 md:top-[25vh] md:h-[30vw] md:w-[38vw] md:max-h-none md:translate-x-0 
+                   rounded-xl border border-[#EC6F46]/40 overflow-hidden 
+                   shadow-[0_0_30px_5px_rgba(236,111,70,0.3)]"
       >
-        <Image
-          src={mainImageSrc}
-          width={450}
-          height={450}
-          className="h-full w-full object-cover object-center"
-          alt="Computer Student Association Team"
-          priority
+        <video
+          src="/AQPe6BZdkzQZk_Rk2uYEQo8d8jOoKwNynfiYXUgGmblUFxgSPAPUYDq-erHnxweo8FPZzu--jMban2624P_u69jRqikKA0jX6oA5wcM.mp4"
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
         />
+        <div className="absolute inset-0 w-full h-full bg-[#EC6F46]/70 mix-blend-multiply"></div>
       </div>
     </div>
   );
