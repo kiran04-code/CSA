@@ -12,6 +12,7 @@ import {
   CodeXml,      // New icon for Web Development
   Smartphone,  // New icon for App Development
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +68,7 @@ const HorizontalScroller: React.FC = () => {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   // --- NEW: Ref for the separator line ---
   const separatorRef = useRef<HTMLDivElement | null>(null);
-
+const nav = useRouter()
   useEffect(() => {
     const ctx = gsap.context(() => {
       // --- NEW: Animation for the separator line ---
@@ -156,7 +157,7 @@ const HorizontalScroller: React.FC = () => {
             </span>{" "}
             Domains
           </h2>
-          <button className="group self-start sm:self-center flex items-center gap-2 px-6 py-3 bg-[#ec6f46] text-white font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+          <button onClick={()=>nav.push("/domain")}  className="group self-start sm:self-center flex items-center gap-2 px-6 py-3 bg-[#ec6f46] text-white font-semibold rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
             Explore More
             <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={20} />
           </button>

@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,9 +85,9 @@ const ClubsSection: React.FC = () => {
           collaborate on groundbreaking projects. We believe in fostering a
           community that drives innovation and technological excellence.
         </p>
-        <div className="mt-6 inline-block border border-[#EC6F46] text-[#EC6F46] px-6 py-2 rounded-lg font-medium hover:bg-[#EC6F46] hover:text-white transition duration-300">
+        <Link href={"/domain"} className="mt-6 inline-block border border-[#EC6F46] text-[#EC6F46] px-6 py-2 rounded-lg font-medium hover:bg-[#EC6F46] hover:text-white transition duration-300">
           Explore Our Domains
-        </div>
+        </Link>
       </div>
 
       {/* Right Content / Image */}
