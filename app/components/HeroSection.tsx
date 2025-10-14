@@ -43,7 +43,7 @@ const HeroSection = () => {
       <Image
         src="/background-pattern.svg"
         alt="Background pattern"
-        className="absolute inset-0 w-full h-full object-cover z-100"
+        className="absolute inset-0 h-[70%]  md: w-full md:h-full object-cover z-100"
         aria-hidden="true"
         width={250}
         height={250}
