@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ZoomScrollPreloader from "./components/loader"; // Use your final loader name
 import HomePageContent from "./components/HomePgaes/HomePg"; // Import the new component
 import CosmicOrbPreloader from "./components/loader";
 
 const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const [loaderdata,setloaderdata] = useState("")
   // A quick check: The original files were .jpg. 
   // Please ensure these .png files exist in your /public folder!
   const loaderImages = [
@@ -15,7 +15,11 @@ const Page = () => {
     "/Generated_Image_September_30__2025_-_11_18PM-removebg-preview.png",
     "/Generated_Image_September_30__2025_-_11_15PM-removebg-preview.png",
   ];
-
+useEffect(()=>{
+localStorage.setItem("loader","ok")
+const data = localStorage.getItem("loader")
+// setIsLoading(data)
+},[])
   return (
     // CRITICAL: `overflow-hidden` has been removed to allow scrolling.
     <main className="bg-black w-full min-h-screen">
