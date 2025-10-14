@@ -15,11 +15,7 @@ const Page = () => {
     "/Generated_Image_September_30__2025_-_11_18PM-removebg-preview.png",
     "/Generated_Image_September_30__2025_-_11_15PM-removebg-preview.png",
   ];
-useEffect(()=>{
-localStorage.setItem("loader","ok")
-const data = localStorage.getItem("loader")
-// setIsLoading(data)
-},[])
+
   return (
     // CRITICAL: `overflow-hidden` has been removed to allow scrolling.
     <main className="bg-black w-full min-h-screen">
