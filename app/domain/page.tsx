@@ -181,9 +181,11 @@ const DomainSection: React.FC<DomainSectionProps> = ({ title, subtitle, descript
           <div ref={rightContentRef} className={`relative flex justify-center items-center h-80 ${isReversed ? 'md:col-start-1' : ''}`}>
               <div className={`absolute w-80 h-80 border-2 rounded-full scale-75 ${colorClasses.border}`}></div>
               <div className={`absolute w-80 h-80 border rounded-full scale-100 ${colorClasses.border}`}></div>
-              <div className={`relative z-10 ${colorClasses.shadow}`}>
-                  {React.cloneElement(icon, { className: `${colorClasses.text} w-[150px] h-[150px]` })}
-              </div>
+<div className={`relative z-10 ${colorClasses.shadow}`}>
+  {React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
+    className: `${colorClasses.text} w-[150px] h-[150px]`,
+  })}
+</div>
           </div>
         </div>
       </section>
