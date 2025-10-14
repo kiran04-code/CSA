@@ -2,18 +2,15 @@
 
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Agent = () => {
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     const imageElement = imageContainerRef.current;
     if (!imageElement) return;
 
-    // Entry animation
+    // Optional: Entry animation (fade in + slight scale)
     gsap.from(imageElement, {
       duration: 1.2,
       autoAlpha: 0,
@@ -22,31 +19,13 @@ const Agent = () => {
       ease: "power3.out",
       delay: 0.5,
     });
-
-    // Scroll-triggered downward movement
-    gsap.to(imageElement, {
-      y: 130, // move down 130px
-      ease: "none",
-      scrollTrigger: {
-        trigger: imageElement,
-        start: "top 80%", 
-        end: "bottom top",
-        scrub: 1,
-        // markers: true, // enable for debugging
-      },
-    });
-
-    // Cleanup on unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
   }, []);
 
   return (
-    <div className="relative w-full md:-z-50  -z-100"> {/* enough height to scroll */}
+    <div className="relative w-full md:-z-50 -z-100">
       <div
         ref={imageContainerRef}
-        className="absolute top-[0vh] h-[100vw]  w-[90vw] max-h-[350px] left-1/2 -translate-x-1/2 
+        className="absolute top-[0vh] h-[100vw] w-[90vw] max-h-[350px] left-1/2 -translate-x-1/2 
                    md:left-auto md:right-20 md:top-[25vh] md:h-[30vw] md:w-[38vw] md:max-h-none md:translate-x-0 
                    rounded-xl border border-[#EC6F46]/40 overflow-hidden 
                    shadow-[0_0_30px_5px_rgba(236,111,70,0.3)]"
