@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Agent from "./Image";
+import Image from "next/image";
 
 // The component that was imported as "Agent" is not defined.
 // You will need to create and import this component for your 3D model to appear.
@@ -39,7 +40,7 @@ const HeroSection = () => {
         - Replaced Next.js <Image> with a standard <img> tag.
         - Used Tailwind classes to make it cover the full screen.
       */}
-      <img
+      <Image
         src="/background-pattern.svg"
         alt="Background pattern"
         className="absolute inset-0 w-full h-full object-cover z-100"
