@@ -59,7 +59,7 @@ const HeroSection = () => {
       <div className="relative z-20">
         {/* Placeholder for the Agent component */}
         <Agent />
-        <section className="flex flex-col md:mt-0 mt-16 md:flex-row justify-between items-center min-h-screen text-white px-8 md:px-12">
+        <section className="flex flex-col md:mt-0 mt-5 md:flex-row justify-between items-center min-h-screen text-white px-8 md:px-12">
           {/* Left Content */}
           <div className="w-full md:w-[65%] mt-10 md:mt-0">
             <h1
