@@ -164,9 +164,11 @@ const DomainSection: React.FC<any> = ({ title, subtitle, description, icon, isRe
               
               {/* Icon with Neon Shadow */}
               <div className={`relative z-10 ${theme.shadow}`}>
-                {React.cloneElement(icon as React.ReactElement, {
-                  className: `${theme.text} w-24 h-24 md:w-40 md:h-40 stroke-[1.5px]`,
-                })}
+                {React.isValidElement(icon)
+                  ? React.cloneElement(icon as React.ReactElement<any>, {
+                      className: `${theme.text} w-24 h-24 md:w-40 md:h-40 stroke-[1.5px]`,
+                    })
+                  : null}
               </div>
           </div>
         </div>
