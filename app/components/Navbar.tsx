@@ -26,14 +26,12 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY || 0;
-      setRotationAngle(currentY * 0.5); // Slightly slowed for smoothness
+      setRotationAngle(currentY * 0.5);
 
+      // Auto-hide on scroll down
       if (currentY > lastScrollYRef.current + 10) {
         if (isOpen) setIsOpen(false);
-      } else if (currentY < lastScrollYRef.current - 20) {
-        // Optional: Show navbar again when scrolling UP
-        // setIsOpen(true); 
-      }
+      } 
       lastScrollYRef.current = currentY;
     };
 
@@ -42,32 +40,32 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed md:ml-8 top-8 md:top-12 inset-x-0 px-4 md:px-12 z-[100] pointer-events-none">
+    <header className="fixed top-6 md:top-12 inset-x-0 px-4 md:px-12 z-[100] pointer-events-none">
       <div className="max-w-7xl mx-auto flex items-center justify-start gap-3 md:gap-6 pointer-events-auto">
         
-        {/* Logo / Toggle Section */}
-        <div className="relative flex flex-col items-start">
+        {/* Logo / Toggle Button */}
+        <div className="relative flex-shrink-0">
           {!isOpen && (
             <button
               onClick={handleToggle}
-              className="absolute -top-8 left-0 mb-1 w-max whitespace-nowrap py-1 px-3 rounded-full bg-black/80 border border-[#ec6f46]/50 text-[10px] uppercase tracking-widest text-[#ec6f46] shadow-[0_0_15px_rgba(236,111,70,0.2)] animate-bounce"
+              className="absolute -top-10 left-0 w-max py-1 px-3 rounded-full bg-black/90 border border-[#ec6f46]/50 text-[9px] uppercase tracking-widest text-[#ec6f46] animate-bounce"
             >
-              Press to open
+              Menu
             </button>
           )}
           
           <button
             onClick={handleToggle}
             onAnimationEnd={() => setIsAnimating(false)}
-            className={`w-14 h-14 md:w-16 md:h-16 bg-black rounded-full border-2 border-orange-500 flex items-center justify-center hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(236,111,70,0.4)] transition-all duration-300 ${
+            className={`w-12 h-12 md:w-16 md:h-16 bg-black rounded-full border-2 border-[#ec6f46] flex items-center justify-center hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(236,111,70,0.3)] transition-all duration-300 ${
               isAnimating ? 'animate-[spin-once_0.7s_ease-in-out]' : ''
             }`}
           >
             <Image
               src={CSALogo}
               alt="Logo"
-              width={35}
-              height={35}
+              width={30}
+              height={30}
               className="rounded-full md:w-[40px] md:h-[40px]"
               style={{ transform: `rotate(${rotationAngle}deg)` }}
             />
@@ -76,18 +74,19 @@ const Navbar = () => {
 
         {/* Links Navigation */}
         <nav
-          className={`flex items-center h-14 md:h-16 bg-black/80 backdrop-blur-md border border-[#ec6f46]/40 rounded-full shadow-[0_0_30px_rgba(236,111,70,0.2)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${
+          className={`flex items-center h-12 md:h-16 bg-black/80 backdrop-blur-lg border border-[#ec6f46]/40 rounded-full shadow-[0_0_30px_rgba(236,111,70,0.2)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden ${
             isOpen 
-              ? 'px-4 md:px-8 opacity-100 max-w-[90vw] md:max-w-4xl' 
-              : 'px-0 opacity-0 pointer-events-none max-w-0 border-none'
+              ? 'px-5 md:px-8 opacity-100 translate-x-0 w-auto max-w-[calc(100vw-80px)] md:max-w-4xl' 
+              : 'px-0 opacity-0 -translate-x-4 pointer-events-none max-w-0 border-none'
           }`}
         >
-          <div className="flex items-center space-x-5 md:space-x-10">
+          {/* Mobile: Horizontal scrollable area if links are many */}
+          <div className="flex items-center space-x-6 md:space-x-10 overflow-x-auto no-scrollbar">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-[#ec6f46] transition-colors duration-300 font-medium text-sm md:text-base whitespace-nowrap uppercase tracking-tight md:tracking-normal"
+                className="text-gray-300 hover:text-[#ec6f46] transition-colors duration-300 font-bold text-xs md:text-sm whitespace-nowrap uppercase tracking-widest"
               >
                 {link.name}
               </Link>
