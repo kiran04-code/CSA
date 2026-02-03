@@ -8,7 +8,11 @@ import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ... (domainData remains the same)
+// Custom type for the style object to allow CSS variables
+interface CardStyle extends React.CSSProperties {
+  "--accent"?: string;
+}
+
 const domainData = [
   { id: 1, icon: <Code />, title: "Competitive Programming", description: "Mastering logic and efficiency under pressure.", color: "#ec6f46", tag: "Logic_Hq" },
   { id: 2, icon: <Bot />, title: "AI & Machine Learning", description: "Architecting the future of intelligent systems.", color: "#46a7ec", tag: "Neural_Net" },
@@ -29,7 +33,6 @@ const HorizontalScroller: React.FC = () => {
       const container = containerRef.current;
       if (!track || !container) return;
 
-      // Mobile check to adjust scroll speed/feel
       const isMobile = window.innerWidth < 768;
 
       gsap.to(track, {
@@ -38,9 +41,8 @@ const HorizontalScroller: React.FC = () => {
         scrollTrigger: {
           trigger: container,
           pin: true,
-          scrub: isMobile ? 0.5 : 1, // Smoother scrub for mobile touch
+          scrub: isMobile ? 0.5 : 1,
           start: "top top",
-          // End is calculated based on horizontal width to ensure it scrolls fully
           end: () => `+=${track.scrollWidth}`,
           invalidateOnRefresh: true,
           anticipatePin: 1,
@@ -63,14 +65,14 @@ const HorizontalScroller: React.FC = () => {
     <section ref={containerRef} className="bg-black text-white overflow-hidden font-sans">
       <div className="h-screen flex flex-col justify-center relative">
         
-        {/* Header - Scaled for Mobile */}
+        {/* Header */}
         <div className="px-6 md:px-10 mb-8 md:mb-16 max-w-[1400px] w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
             <div className="flex items-center md:px-10 gap-2 mb-2">
               <span className="w-1.5 h-1.5 bg-[#ec6f46] animate-pulse rounded-full"></span>
               <span className="text-[10px] font-mono tracking-[0.3em] text-zinc-500 uppercase">System Segments</span>
             </div>
-            <h2 className="text-4xl md:text-7xl md:px-10 font-black  tracking-tighter leading-none">
+            <h2 className="text-4xl md:text-7xl md:px-10 font-black tracking-tighter leading-none">
               CLUB <span className="text-[#ec6f46]">CORE DOMAINS</span>
             </h2>
           </div>
@@ -85,7 +87,7 @@ const HorizontalScroller: React.FC = () => {
           </button>
         </div>
 
-        {/* The Track - More compact card sizes */}
+        {/* The Track */}
         <div ref={trackRef} className="flex flex-nowrap w-max gap-6 md:gap-10 px-[8vw]">
           {domainData.map((domain, index) => (
             <div
@@ -94,7 +96,7 @@ const HorizontalScroller: React.FC = () => {
               style={{ 
                 clipPath: "polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)",
                 "--accent": domain.color 
-              } as any}
+              } as CardStyle}
             >
               <div className="scanner-line absolute top-0 left-0 w-full h-[1px] bg-[var(--accent)] opacity-30 z-20 pointer-events-none"></div>
 

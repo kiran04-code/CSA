@@ -13,7 +13,15 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const domains = [
+// Defined interface to replace implicit 'any'
+interface Domain {
+  icon: React.ReactNode;
+  name: string;
+  tagline: string;
+  desc: string;
+}
+
+const domains: Domain[] = [
   { icon: <BsRobot />, name: "AI & ML", tagline: "Intel Cell", desc: "Neural Networks & Deep Learning." },
   { icon: <BsCodeSlash />, name: "Web Dev", tagline: "Dev Wing", desc: "Full-stack web architectures." },
   { icon: <BsCpu />, name: "IoT", tagline: "Hardware", desc: "Robotics & Smart Systems." },
@@ -58,7 +66,7 @@ const ClubsSection: React.FC = () => {
       {/* Background Glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 bg-[#EC6F46]/10 blur-[100px] md:blur-[130px] rounded-full pointer-events-none" />
 
-      {/* Left Content: Centered on mobile, left-aligned on desktop */}
+      {/* Left Content */}
       <div className="flex-1 z-20 space-y-8 text-center lg:text-left">
         <div className="space-y-4">
           <span className="reveal-up inline-block text-[#EC6F46] font-mono text-xs uppercase tracking-[0.4em]">
@@ -87,9 +95,7 @@ const ClubsSection: React.FC = () => {
       {/* Circular Orbit Visual */}
       <div className="flex-1 flex justify-center items-center relative orbit-visual h-[450px] sm:h-[600px] lg:h-[800px] w-full">
         
-        {/* Visual Path (The Ring) */}
         <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[550px] lg:h-[550px] border border-white/5 rounded-full" />
-            
                
         <div className="relative w-full h-full animate-orbit flex items-center justify-center">
             {domains.map((domain, index) => {
@@ -102,18 +108,14 @@ const ClubsSection: React.FC = () => {
                   >
                     <div className="animate-orbit-reverse">
                         <div className="relative group cursor-pointer">
-                            {/* Inner Glow */}
                             <div className="absolute -inset-2 bg-[#EC6F46]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition duration-700" />
                             
-                            {/* THE CIRCULAR CARD */}
                             <div className="relative flex flex-col items-center justify-center text-center w-44 h-44 md:w-45 md:h-45 bg-[#0A0A0A]/80 backdrop-blur-md border border-white/10 rounded-full shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:border-[#EC6F46]/50 p-6">
                                 
-                                {/* Icon with Circle Background */}
                                 <div className="flex items-center justify-center w-12 h-12 mb-3 bg-black border border-[#EC6F46]/40 rounded-full text-[#EC6F46] text-xl">
                                     {domain.icon}
                                 </div>
                                 
-                                {/* Text Content */}
                                 <div className="flex flex-col items-center">
                                     <span className="text-[8px] text-[#EC6F46] font-mono font-bold uppercase tracking-wider mb-1">{domain.tagline}</span>
                                     <h4 className="text-white text-sm font-bold tracking-tight mb-1">{domain.name}</h4>
@@ -127,7 +129,6 @@ const ClubsSection: React.FC = () => {
             })}
         </div>
 
-        {/* Center Logo - Scaled for mobile */}
         <div className="absolute z-10 w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 flex items-center justify-center">
             <div className="absolute inset-0 bg-[#EC6F46]/10 blur-[40px] md:blur-[80px] rounded-full animate-pulse" />
             <Image
@@ -141,7 +142,6 @@ const ClubsSection: React.FC = () => {
       </div>
 
       <style jsx>{`
-        /* Dynamic radius based on screen size */
         :root {
           --orbit-radius: -150px;
         }
@@ -159,7 +159,6 @@ const ClubsSection: React.FC = () => {
         .animate-orbit { animation: orbit 40s linear infinite; }
         .animate-orbit-reverse { animation: orbit 40s linear infinite reverse; }
         
-        /* Pause on hover for better accessibility/interaction */
         .orbit-visual:hover .animate-orbit,
         .orbit-visual:hover .animate-orbit-reverse { animation-play-state: paused; }
       `}</style>
