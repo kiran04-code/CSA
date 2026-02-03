@@ -3,11 +3,10 @@ import React from "react";
 
 const Agent = () => {
   const columnImages = [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500",
-    "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500",
-    "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=500",
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500",
-    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500",
+    "We're excited to welcome Mr. Suhas Desai, Chief Technology Officer at CyberNxt, as our expert sp.jpg",
+    "Our team secured 1st Place at the National-Level Hackathon organized by Mozilla Club MITACSC! 🐮webp.webp",
+    "IMG_7801.jpg",
+    "IMG_7805.jpg",
   ];
 
   const renderColumn = () => (
