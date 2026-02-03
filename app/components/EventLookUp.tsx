@@ -54,7 +54,7 @@ const ClubHeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black text-white relative flex flex-col items-center justify-center min-h-screen overflow-hidden   p-6"
+      className="bg-black text-white mt-10 relative flex flex-col items-center justify-center min-h-screen overflow-hidden   p-6"
     >
       {/* Decorative left-side dots */}
       <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 flex-col items-center space-y-4 md:flex">

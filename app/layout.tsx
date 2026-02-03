@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   },
 };
 
+// layout.tsx
+// layout.tsx
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,11 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.className} antialiased  `}
-      >
-        <Navbar/>
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.className} antialiased bg-black`}>
+        {/* Navbar is REMOVED from here */}
+        <CustomCursor />
+        <main className="relative z-0">
+  
+           {children}
+        </main>
       </body>
     </html>
   );

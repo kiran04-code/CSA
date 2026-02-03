@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import ZoomScrollPreloader from "./components/loader"; // Use your final loader name
 import HomePageContent from "./components/HomePgaes/HomePg"; // Import the new component
 import CosmicOrbPreloader from "./components/loader";
+import Navbar from "./components/Navbar";
 
 const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +27,10 @@ const Page = () => {
           onLoaded={() => setIsLoading(false)}
         />
       ) : (
+      <>
+      <Navbar/>
       <HomePageContent />
+      </>
       )}
     </main>
   );

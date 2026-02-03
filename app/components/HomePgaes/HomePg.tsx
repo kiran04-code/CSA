@@ -31,20 +31,17 @@ const HomePageContent = () => {
     <div className="animate-fadeIn">
 
       <CustomCursor />
- 
-
       <HeroSection />
-
       <AboutTeam />
       <ClubsSection />
       <HorizontalScroller />
-     <Events/>
+      <Events />
       {/* Render the new FeaturedEventImage component here */}
 
       <FeaturedEventImage {...latestEventData} />
 
       <ClubMembersSection />
-<TeamCounterSection/>
+      <TeamCounterSection />
       <Footer />
     </div>
   );
