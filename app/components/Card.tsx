@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Code, Bot, ShieldCheck, Server, ArrowRight, CodeXml, Smartphone } from "lucide-react";
 import { useRouter } from "next/navigation";
 interface Domain {
-  id:number,
+  id: number,
   icon: LucideIcon;
   title: string;
   description: string;
@@ -73,7 +73,7 @@ const HorizontalScroller: React.FC = () => {
   return (
     <section ref={containerRef} className="bg-black text-white overflow-hidden font-sans">
       <div className="h-screen flex flex-col justify-center relative">
-        
+
         {/* Header */}
         <div className="px-6 md:px-10 mb-8 md:mb-16 max-w-[1400px] w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div>
@@ -81,12 +81,18 @@ const HorizontalScroller: React.FC = () => {
               <span className="w-1.5 h-1.5 bg-[#ec6f46] animate-pulse rounded-full"></span>
               <span className="text-[10px] font-mono tracking-[0.3em] text-zinc-500 uppercase">System Segments</span>
             </div>
-            <h2 className="text-4xl md:text-7xl md:px-10 font-black tracking-tighter leading-none">
-              CLUB <span className="text-[#ec6f46]">CORE DOMAINS</span>
-            </h2>
+
+            <h1 className="text-5xl font-bold text-center md:text-8xl  text-[#EC6F46] tracking-tighter leading-[1.1]">
+
+              <span className="block overflow-hidden text-center">
+                <span className="title-span block px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10 ">
+                  CLUB CORE DOMAINS
+                </span>
+              </span>
+            </h1>
           </div>
-          <button 
-            onClick={() => nav.push("/domain")} 
+          <button
+            onClick={() => nav.push("/domain")}
             className="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
           >
             <span className="font-mono text-[10px] md:text-sm tracking-widest">EXPLORE_ALL</span>
@@ -102,18 +108,18 @@ const HorizontalScroller: React.FC = () => {
             <div
               key={domain.id}
               className="relative flex-shrink-0 w-[280px] h-[380px] md:w-[350px] md:h-[450px] bg-zinc-950 border border-zinc-800 p-px group overflow-hidden"
-              style={{ 
+              style={{
                 clipPath: "polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)",
-                "--accent": domain.color 
+                "--accent": domain.color
               } as CardStyle}
             >
               <div className="scanner-line absolute top-0 left-0 w-full h-[1px] bg-[var(--accent)] opacity-30 z-20 pointer-events-none"></div>
 
               <div className="relative h-full w-full bg-[#0a0a0a] p-6 md:p-8 border border-zinc-900 flex flex-col justify-between group-hover:border-[var(--accent)]/40 transition-all duration-500">
-                
+
                 <div className="flex justify-between items-start">
                   <div className="p-3 bg-zinc-900 border border-zinc-800 text-[var(--accent)] transition-transform duration-500">
-                   <domain.icon size={24} />
+                    <domain.icon size={24} />
                   </div>
                   <div className="text-right font-mono">
                     <p className="text-[8px] text-zinc-600 uppercase">UID</p>
@@ -132,11 +138,11 @@ const HorizontalScroller: React.FC = () => {
                 </div>
 
                 <div className="flex justify-between items-end">
-                   <div className="font-mono text-[9px] text-zinc-700">
-                      <p>STATUS: <span className="text-[var(--accent)]">ACTIVE</span></p>
-                      <p>#{domain.tag}</p>
-                   </div>
-                   <ArrowRight size={14} className="text-zinc-700 group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all" />
+                  <div className="font-mono text-[9px] text-zinc-700">
+                    <p>STATUS: <span className="text-[var(--accent)]">ACTIVE</span></p>
+                    <p>#{domain.tag}</p>
+                  </div>
+                  <ArrowRight size={14} className="text-zinc-700 group-hover:text-[var(--accent)] group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             </div>

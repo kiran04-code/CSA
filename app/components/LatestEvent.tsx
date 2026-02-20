@@ -25,9 +25,15 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
   return (
     <section className="bg-black  sm:py-5 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-1Z flex mb-20 md:mb-10 flex-col justify-center items-center">
       <div className="w-full text-center  sm:mb-12">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight [text-shadow:0_0_15px_#EC6F46]">
-          Latest <span className="text-[#EB5C2D]">Events</span>
-        </h1>
+      
+          <h1 className="text-5xl md:text-8xl font-medium text-[#EC6F46] tracking-tighter leading-[1.1]">
+             
+              <span className="block overflow-hidden text-center">
+                <span className="title-span block px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10 ">
+                 LATEST EVENTS
+                </span>
+              </span>
+            </h1>
       </div>
       {/* UPDATED: Changed rounding for the curved container effect. */}
       {/* We use a large radius for the top corners and a smaller one for the bottom. */}
@@ -94,20 +100,7 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
               </div>
             </div>
 
-            {/* Learn More Button */}
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-[#EB5C2D] text-white font-semibold text-xs sm:text-sm md:text-base py-2 px-4 sm:px-6 md:px-8 rounded-full group transition-transform hover:scale-105"
-            >
-              Learn More
-              <span className="ml-2 w-6 h-6 sm:w-8 sm:h-8 md:w-8 md:h-8 rounded-full flex items-center justify-center bg-[#EB5C2D] transition-transform group-hover:rotate-12">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </span>
-            </a>
+        
           </div>
         </div>
       </div>
