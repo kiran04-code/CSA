@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Mozilla_Headline  } from "next/font/google";
-import "./globals.css"
+import { Geist, Mozilla_Headline } from "next/font/google";
+import "./globals.css";
 import CustomCursor from "./components/custumCorsor";
-import Navbar from "./components/Navbar";
+
 const geistSans = Geist({
-  variable: '--font-mozilla-headline',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",   // ✅ correct
+  subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Mozilla_Headline ({
-  variable: "--font-geist-mono",
+const mozillaHeadline = Mozilla_Headline({
+  variable: "--font-mozilla-headline", // ✅ correct
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,21 +23,24 @@ export const metadata: Metadata = {
   },
 };
 
-// layout.tsx
-// layout.tsx
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.className} antialiased bg-black`}>
-        {/* Navbar is REMOVED from here */}
+      <body
+        className={`
+          ${geistSans.variable}
+          ${mozillaHeadline.variable}
+          antialiased
+          bg-black
+        `}
+      >
         <CustomCursor />
         <main className="relative z-0">
-  
-           {children}
+          {children}
         </main>
       </body>
     </html>

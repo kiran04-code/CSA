@@ -9,7 +9,7 @@ const headsData = [
   { id: "02", name: "arnav jadhav", role: "SECRETARY", imageUrl: "/s3.png", links: ["LinkedIn", "Twitter"] },
   { id: "03", name: "Vikas Doifode", role: "TECH LEAD", imageUrl: "/t2.png", links: ["GitHub", "LinkedIn","Twitter"] },
   { id: "04", name: "dev lahrani", role: "TREASURER", imageUrl: "/ts1.png", links: ["LinkedIn", "Twitter"] },
-  { id: "05", name: "KRISHNA PATIL", role: "PR OFFICER", imageUrl: "/559287359_17892448425201886_6035933195257899327_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
+  { id: "05", name: "KRISHNA PATIL", role: "PR OFFICER", imageUrl: "/pr.png", links: ["LinkedIn", "Twitter"] },
 ];
 
 const MultiHeadSection = () => {
@@ -79,7 +79,7 @@ const MultiHeadSection = () => {
             
             {/* Background Name Mask (Keeping the massive scale) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-               <h2 className="text-[22vw] md:text-[12vw] font-bold opacity-[0.06] uppercase leading-none text-center select-none">
+               <h2 className="text-[32vw] sm:text-[26vw] md:text-[12vw] font-bold opacity-[0.06] uppercase leading-none text-center select-none">
                   {headsData[index].name.split(" ")[0]}
                </h2>
             </div>

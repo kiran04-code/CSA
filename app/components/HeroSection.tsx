@@ -63,17 +63,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* 4. Corner Coordinates (Industrial Vibe) */}
-      <div className="absolute bottom-10 w-full px-10 flex justify-between items-end text-[10px] font-mono text-gray-600 tracking-widest uppercase">
-        <div className="flex flex-col gap-1">
-          <span>LAT: 28.7041° N</span>
-          <span>LNG: 77.1025° E</span>
-        </div>
-        <div className="text-right">
-          <span>Archive_v2.6</span>
-          <p className="text-[#ec6f46]">System.Active</p>
-        </div>
-      </div>
+  
 
     </div>
   );
