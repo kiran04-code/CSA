@@ -5,10 +5,10 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const headsData = [
-  { id: "01", name: "Mayur Sabale", role: "CHAIRPERSON", imageUrl: "/572686763_18064228076136143_4569054778650063095_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
-  { id: "02", name: "arnav jadhav", role: "SECRETARY", imageUrl: "/564092544_18081865292049096_4136043250377579190_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
+  { id: "01", name: "Mayur Sabale", role: "CHAIRPERSON", imageUrl: "/ch.png", links: ["LinkedIn", "Twitter"] },
+  { id: "02", name: "arnav jadhav", role: "SECRETARY", imageUrl: "/s3.png", links: ["LinkedIn", "Twitter"] },
   { id: "03", name: "Vikas Doifode", role: "TECH LEAD", imageUrl: "/t2.png", links: ["GitHub", "LinkedIn","Twitter"] },
-  { id: "04", name: "dev lahrani", role: "TREASURER", imageUrl: "/569906048_18096504400747807_5783845083126788977_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
+  { id: "04", name: "dev lahrani", role: "TREASURER", imageUrl: "/ts1.png", links: ["LinkedIn", "Twitter"] },
   { id: "05", name: "KRISHNA PATIL", role: "PR OFFICER", imageUrl: "/559287359_17892448425201886_6035933195257899327_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
 ];
 
