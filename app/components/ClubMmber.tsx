@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Home, User, Mail, Zap, Sun, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const headsData = [
   { id: "01", name: "Mayur Sabale", role: "CHAIRPERSON", imageUrl: "/572686763_18064228076136143_4569054778650063095_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
-  { id: "02", name: "arnav jadhav", role: "SECRETARY", imageUrl: "/564092544_18081865292049096_4136043250377579190_n.-removebg-preview.png", links: ["LinkedIn", "Instagram"] },
-  { id: "03", name: "Vikas Doifode", role: "TECH LEAD", imageUrl: "/554358462_17858858610506946_74122786426826604_n.-removebg-preview.png", links: ["GitHub", "Portfolio", "LinkedIn"] },
-  { id: "04", name: "dev lahrani", role: "TREASURER", imageUrl: "/569906048_18096504400747807_5783845083126788977_n.-removebg-preview.png", links: ["LinkedIn", "Instagram"] },
-  { id: "05", name: "Sneha Reddy", role: "PR OFFICER", imageUrl: "/559287359_17892448425201886_6035933195257899327_n.-removebg-preview.png", links: ["Behance", "Twitter"] },
+  { id: "02", name: "arnav jadhav", role: "SECRETARY", imageUrl: "/564092544_18081865292049096_4136043250377579190_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
+  { id: "03", name: "Vikas Doifode", role: "TECH LEAD", imageUrl: "/554358462_17858858610506946_74122786426826604_n.-removebg-preview.png", links: ["GitHub", "LinkedIn","Twitter"] },
+  { id: "04", name: "dev lahrani", role: "TREASURER", imageUrl: "/569906048_18096504400747807_5783845083126788977_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
+  { id: "05", name: "KRISHNA PATIL", role: "PR OFFICER", imageUrl: "/559287359_17892448425201886_6035933195257899327_n.-removebg-preview.png", links: ["LinkedIn", "Twitter"] },
 ];
 
 const MultiHeadSection = () => {
@@ -21,7 +21,7 @@ const MultiHeadSection = () => {
   return (
     <div className="bg-black py-4 md:py-10 min-h-screen flex flex-col">
       {/* HEADER SECTION - Adjusted for mobile visibility */}
-      <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-none mb-2 md:mb-4">
+      <h1 className="text-4xl md:text-8xl font-bold tracking-tighter leading-none mb-2 md:mb-4">
         <span className="block overflow-hidden text-center">
           <span className="title-span block px-2 md:px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10">
             MEET OUR TEAM
@@ -39,13 +39,13 @@ const MultiHeadSection = () => {
           {/* LEFT: Branding & Nav (Visible but smaller on mobile) */}
           <div className="col-span-6 md:col-span-3 flex flex-col justify-between py-2 md:py-6 z-10 order-1 md:order-1">
             <div className="flex items-center gap-2 drop-shadow-md">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center text-[#EB5C2D] font-black italic text-sm">C</div>
-              <span className="font-black tracking-tighter text-lg md:text-2xl uppercase">CSA_Heads</span>
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center text-[#EB5C2D] font-bold italic text-sm">C</div>
+              <span className="font-bold tracking-tighter text-lg md:text-2xl uppercase">CSA_Heads</span>
             </div>
             
             <nav className="hidden md:flex flex-col gap-5 mt-10">
               {['HOME', 'ABOUT', 'SKILLS', 'PROJECTS'].map((item) => (
-                <a key={item} href="#" className="text-4xl lg:text-5xl font-black uppercase tracking-tighter hover:text-white transition-all opacity-20 hover:opacity-100">
+                <a key={item} href="#" className="text-4xl lg:text-5xl font-bold uppercase tracking-tighter hover:text-white transition-all opacity-20 hover:opacity-100">
                   {item}
                 </a>
               ))}
@@ -60,14 +60,14 @@ const MultiHeadSection = () => {
           <div className="col-span-6 md:col-span-3 flex flex-col justify-start md:justify-between items-end py-2 md:py-6 z-10 order-2 md:order-3">
              <div className="text-right font-mono drop-shadow-md">
               <p className="text-[8px] md:text-[10px] opacity-40 uppercase tracking-widest font-bold">Status</p>
-              <p className="font-black text-sm md:text-2xl italic tracking-tighter">ACTIVE // 0{index + 1}</p>
+              <p className="font-bold text-sm md:text-2xl italic tracking-tighter">ACTIVE // 0{index + 1}</p>
             </div>
 
             {/* Social Matrix - Still large on mobile, just shifted */}
             <div className="flex flex-col items-end gap-2 md:gap-6 text-right mt-10 md:mt-20">
                 <span className="font-mono text-[8px] md:text-[10px] tracking-[0.4em] opacity-40 uppercase font-bold">Socials</span>
                 {headsData[index].links.map((link) => (
-                    <a key={link} href="#" className="text-xl md:text-4xl font-black uppercase tracking-tighter hover:text-white transition-colors hover:drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)]">
+                    <a key={link} href="#" className="text-xl md:text-4xl font-bold uppercase tracking-tighter hover:text-white transition-colors hover:drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)]">
                       {link}
                     </a>
                 ))}
@@ -79,17 +79,17 @@ const MultiHeadSection = () => {
             
             {/* Background Name Mask (Keeping the massive scale) */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-               <h2 className="text-[25vw] md:text-[15vw] font-black opacity-[0.06] uppercase leading-none text-center select-none">
+               <h2 className="text-[22vw] md:text-[12vw] font-bold opacity-[0.06] uppercase leading-none text-center select-none">
                   {headsData[index].name.split(" ")[0]}
                </h2>
             </div>
 
             {/* Dynamic Name and Role */}
             <div className="relative z-30 text-center mb-4 md:mb-8 drop-shadow-[0_10px_10px_rgba(0,0,0,0.2)]">
-                <h3 className="text-4xl md:text-7xl font-black uppercase text-black mb-1 md:mb-2 tracking-tighter drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)] leading-none">
+                <h3 className="text-4xl md:text-7xl font-bold uppercase text-black mb-1 md:mb-2 tracking-tighter drop-shadow-[0_5px_15px_rgba(0,0,0,0.4)] leading-none">
                     {headsData[index].name}
                 </h3>
-                <div className="bg-black text-[#EB5C2D] px-4 md:px-6 py-1 text-[8px] md:text-[10px] font-black tracking-[0.4em] md:tracking-[0.5em] inline-block rounded-full shadow-2xl">
+                <div className="bg-black text-[#EB5C2D] px-4 md:px-6 py-1 text-[8px] md:text-[10px] font-bold tracking-[0.4em] md:tracking-[0.5em] inline-block rounded-full shadow-2xl">
                     {headsData[index].role}
                 </div>
             </div>
@@ -102,14 +102,14 @@ const MultiHeadSection = () => {
                     alt={headsData[index].name}
                     fill
                     className="object-contain grayscale md:grayscale group-hover:grayscale-0 transition-all duration-700 
-                               drop-shadow-[20px_30px_30px_rgba(0,0,0,0.6)] md:drop-shadow-[30px_50px_40px_rgba(0,0,0,0.6)]"
+                                drop-shadow-[20px_30px_30px_rgba(0,0,0,0.6)] md:drop-shadow-[30px_50px_40px_rgba(0,0,0,0.6)]"
                     priority
                   />
               </div>
             </div>
 
              {/* Nav Arrows - Positioned for thumb reach on mobile */}
-             <div className="absolute inset-x-0 bottom-10 md:top-[60%] md:-translate-y-1/2 flex justify-between z-40 px-4 md:-px-10">
+            <div className="absolute inset-x-0 bottom-10 md:top-[80%] md:-translate-y-1/2 flex justify-between z-40 px-4 md:-px-10">
               <button onClick={prevMember} className="p-3 md:p-4 bg-black text-white rounded-full shadow-2xl active:scale-75 transition-transform">
                 <ChevronLeft size={24} className="md:w-8 md:h-8" />
               </button>
@@ -121,11 +121,11 @@ const MultiHeadSection = () => {
         </div>
 
         {/* Marquee Ticker */}
-        <div className="absolute bottom-0 w-full bg-black py-2 md:py-4 flex overflow-hidden">
-          <div className="flex animate-marquee whitespace-nowrap gap-8 md:gap-12 font-mono text-[8px] md:text-[10px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-[#ec6f46]">
-            <span>Leadership</span> <span>•</span> <span>Innovation</span> <span>•</span> <span>Technology</span> <span>•</span> <span>Community</span> <span>•</span> <span>Leadership</span> <span>•</span> <span>Innovation</span>
-          </div>
+        <div className="absolute bottom-0 w-full bg-black/10 py-3 flex overflow-hidden border-t border-black/5">
+        <div className="flex animate-marquee whitespace-nowrap gap-12 font-mono text-[10px] font-bold uppercase tracking-[0.6em] text-black/40">
+          <span>Leadership</span> <span>•</span> <span>Innovation</span> <span>•</span> <span>Technology</span> <span>•</span> <span>Community</span> <span>•</span> <span>Leadership</span> <span>•</span> <span>Innovation</span> <span>•</span> <span>Technology</span> <span>•</span> <span>Community</span>
         </div>
+      </div>
 
         <style jsx>{`
           @keyframes marquee {
