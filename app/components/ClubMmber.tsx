@@ -83,9 +83,7 @@ const MultiHeadSection = () => {
               ))}
             </nav>
 
-            <div className="font-mono text-[8px] md:text-[10px] tracking-[0.2em] bg-black text-white p-2 md:p-3 w-fit rounded-lg shadow-xl font-bold mt-4 md:mt-0">
-              MEMBER_ID: {currentMember.id}
-            </div>
+        
           </div>
 
           {/* RIGHT: System Status & Socials */}
