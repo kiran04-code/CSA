@@ -26,14 +26,13 @@ const FeaturedEventImage: React.FC<FeaturedEventProps> = ({
     <section className="bg-black  sm:py-5 inset-0 bg-gradient-to-t from-black via-black/70 to-transparent  px-4 sm:px-8 md:px-1Z flex mb-20 md:mb-10 flex-col justify-center items-center">
       <div className="w-full text-center  sm:mb-12">
       
-          <h1 className="text-5xl md:text-8xl font-medium text-[#EC6F46] tracking-tighter leading-[1.1]">
-             
-              <span className="block overflow-hidden text-center">
-                <span className="title-span block px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10 ">
-                 LATEST EVENTS
-                </span>
-              </span>
-            </h1>
+           <h1 className="text-4xl md:text-8xl font-bold tracking-tighter leading-none mb-2 md:mb-4">
+        <span className="block overflow-hidden text-center">
+          <span className="title-span block px-2 md:px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10">
+            LATEST EVENT
+          </span>
+        </span>
+      </h1>
       </div>
       {/* UPDATED: Changed rounding for the curved container effect. */}
       {/* We use a large radius for the top corners and a smaller one for the bottom. */}

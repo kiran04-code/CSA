@@ -82,14 +82,13 @@ const HorizontalScroller: React.FC = () => {
               <span className="text-[10px] font-mono tracking-[0.3em] text-zinc-500 uppercase">System Segments</span>
             </div>
 
-            <h1 className="text-5xl font-bold text-center md:text-8xl  text-[#EC6F46] tracking-tighter leading-[1.1]">
-
-              <span className="block overflow-hidden text-center">
-                <span className="title-span block px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10 ">
-                  CLUB CORE DOMAINS
-                </span>
-              </span>
-            </h1>
+             <h1 className="text-4xl md:text-8xl font-bold tracking-tighter leading-none mb-2 md:mb-4">
+        <span className="block overflow-hidden text-center">
+          <span className="title-span block px-2 md:px-5 text-transparent bg-clip-text bg-gradient-to-b from-[#EC6F46] to-white/10">
+            CLUB CORE DOMAINS
+          </span>
+        </span>
+      </h1>
           </div>
           <button
             onClick={() => nav.push("/domain")}
