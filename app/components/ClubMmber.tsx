@@ -107,7 +107,7 @@ const MultiHeadSection = () => {
                       className="flex items-center gap-2 text-xl md:text-4xl font-bold uppercase tracking-tighter hover:text-white transition-colors hover:drop-shadow-[0_5px_15px_rgba(0,0,0,0.3)] group"
                     >
                       {platform === "LinkedIn" && <Linkedin className="w-5 h-5 md:w-8 md:h-8" />}
-                      <span>{platform}</span>
+                      <span className=" text-[20px] md:text-[23px] tracking-[0.1em] " >{platform}</span>
                     </a>
                 ))}
             </div>
