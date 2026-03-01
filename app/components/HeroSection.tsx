@@ -86,12 +86,7 @@ const handleScroll = () => {
     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
     {/* Metadata Text */}
-    <div className="flex items-center gap-2 mb-1">
-      <span className="text-[7px] font-mono text-[#BD5C3C] uppercase tracking-[0.4em] font-bold">
-        Status.Loading //
-      </span>
-      <span className="w-1 h-1 bg-[#BD5C3C] rounded-full animate-pulse" />
-    </div>
+
 
     {/* Main Button Text */}
     <div className="flex items-center gap-4">
