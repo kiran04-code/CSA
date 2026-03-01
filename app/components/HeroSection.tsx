@@ -58,43 +58,68 @@ const handleScroll = () => {
           </p>
 
         {/* --- HIGH VISIBILITY CTA --- */}
-{/* --- ARCHITECTURAL CTA BUTTON --- */}
+{/* --- AUTO-HIGHLIGHTING CTA --- */}
+{/* --- EXCLUSIVE CLUB BUTTON WITH CIRCULAR LOADER --- */}
 <button 
-  onClick={handleScroll}
-  className="cta-btn group mt-20 relative flex items-center gap-6 transition-all duration-500 active:scale-95"
+  onClick={() => document.getElementById("latest-event")?.scrollIntoView({ behavior: "smooth" })}
+  className="reveal-item group relative mt-12 flex items-center transition-all active:scale-95 px-2 py-2"
 >
-  {/* Left Side: Number/Status Indicator */}
-  <div className="flex flex-col items-end">
-    <span className="text-[#ec6f46] font-mono text-[10px] leading-none font-bold tracking-tighter">01</span>
-    <div className="h-8 w-[1px] bg-gradient-to-b from-[#ec6f46] to-transparent mt-1 group-hover:h-12 transition-all duration-500"></div>
-  </div>
+  {/* 1. THE CIRCULAR LOADER BORDER */}
+  {/* This svg creates the rotating orange stroke around the button */}
+  <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
+    <rect
+      x="0" y="0" 
+      width="100%" height="100%"
+      fill="none"
+      stroke="#BD5C3C"
+      strokeWidth="2"
+      strokeDasharray="100 300"
+      className="animate-[dash_3s_linear_infinite] opacity-60 group-hover:opacity-100"
+      rx="4"
+    />
+  </svg>
 
-  {/* Main Button Body: Glass + Border */}
-  <div className="relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md px-12 py-5 rounded-sm transition-all duration-500 group-hover:border-[#ec6f46]/50 group-hover:bg-[#ec6f46]/5">
+  {/* 2. THE MAIN BODY (Glassmorphism) */}
+  <div className="relative z-10 bg-zinc-900/60 backdrop-blur-xl border border-white/5 px-10 py-5 rounded-sm flex flex-col items-start overflow-hidden transition-all duration-500 group-hover:bg-[#BD5C3C]/5">
     
-    {/* Moving Glint Effect */}
-    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+    {/* Background Scan Line */}
+    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
-    <div className="relative z-10 flex items-center gap-4">
-      <span className="text-white text-xs md:text-sm font-black uppercase tracking-[0.6em] group-hover:tracking-[0.8em] transition-all duration-500">
+    {/* Metadata Text */}
+    <div className="flex items-center gap-2 mb-1">
+      <span className="text-[7px] font-mono text-[#BD5C3C] uppercase tracking-[0.4em] font-bold">
+        Status.Loading //
+      </span>
+      <span className="w-1 h-1 bg-[#BD5C3C] rounded-full animate-pulse" />
+    </div>
+
+    {/* Main Button Text */}
+    <div className="flex items-center gap-4">
+      <span className="text-white text-sm md:text-lg font-black uppercase italic tracking-[0.5em] group-hover:text-[#BD5C3C] transition-colors">
         New Event
       </span>
       
-      {/* Small Arrow Icon */}
-      <svg 
-        width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
-        className="text-[#ec6f46] group-hover:translate-x-2 transition-transform duration-500"
-      >
-        <path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+      {/* Small Arrow that appears on hover */}
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" className="text-[#BD5C3C] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+        <path d="M8.14645 3.14645L12.8536 7.85355" stroke="currentColor" strokeWidth="2" />
       </svg>
     </div>
-
-    {/* Bottom Glow bar */}
-    <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#ec6f46] group-hover:w-full transition-all duration-700" />
   </div>
 
-  {/* Background Glow Shadow */}
-  <div className="absolute -inset-4 bg-[#ec6f46]/20 blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none" />
+  {/* 3. CORNER ACCENT (Unique Design) */}
+  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-[#BD5C3C] opacity-50 group-hover:opacity-100 transition-opacity" />
+
+  {/* Custom CSS for the Dash Animation */}
+  <style jsx>{`
+    @keyframes dash {
+      from {
+        stroke-dashoffset: 400;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  `}</style>
 </button>
         </div>
       </div>
