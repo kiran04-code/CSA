@@ -13,6 +13,7 @@ import FeaturedEventImage from "../LatestEvent";
 import AutoIncrementPage from "../EventsVlues";
 import TeamCounterSection from "../EventsVlues";
 import Events from "../EventLookUp";
+import EventSection from "../Event2";
 
 // Import all your sections here
 const latestEventData = {
@@ -36,6 +37,7 @@ const HomePageContent = () => {
       <ClubsSection />
       <HorizontalScroller />
       <Events />
+      <EventSection/>
       {/* Render the new FeaturedEventImage component here */}
 
       <FeaturedEventImage {...latestEventData} />

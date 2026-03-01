@@ -24,10 +24,8 @@ interface CardStyle extends React.CSSProperties {
 const domainData: Domain[] = [
   { id: 1, icon: Code, title: "Competitive Programming", description: "Mastering logic and efficiency under pressure.", color: "#ec6f46", tag: "Logic_Hq" },
   { id: 2, icon: Bot, title: "AI & Machine Learning", description: "Architecting the future of intelligent systems.", color: "#46a7ec", tag: "Neural_Net" },
-  { id: 3, icon: ShieldCheck, title: "Cybersecurity", description: "The front line of digital defense and ethics.", color: "#ec4646", tag: "Sec_Ops" },
   { id: 4, icon: CodeXml, title: "Web Development", description: "Building high-performance immersive interfaces.", color: "#46ec98", tag: "Stack_Dev" },
   { id: 5, icon: Smartphone, title: "App Development", description: "Mobile-first engineering for the modern user.", color: "#e046ec", tag: "Mob_Arch" },
-  { id: 6, icon: Server, title: "Cloud & DevOps", description: "Scaling infrastructure with infinite precision.", color: "#ecc446", tag: "Sys_Admin" },
 ];
 
 
